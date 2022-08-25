@@ -1,0 +1,9 @@
+# ignore this
+/node_modules
+package-lock.json
+.env
+
+# client
+/client/node_modules
+/client/package-lock.json
+/client/build
