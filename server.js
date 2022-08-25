@@ -12,4 +12,4 @@ app.listen(process.env.PORT || 8080, () => {
   console.log('server up on port ', process.env.PORT || 5000);
 });
 
-app.use('/backend/products', router);
+app.use('/backend/products', router, 'client/build');
