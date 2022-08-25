@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 const Products = (props) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/backend/products/all`)
+    fetch(`/all`)
     .then(res => {
       if(res.status === 200){
         return res.json();
