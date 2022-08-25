@@ -12,6 +12,9 @@ const Products = (props) => {
     .then(data => {
       setProducts(data);
     })
+    .catch(e => {
+      console.log(e);
+    })
   },[])
   return(
     <div>
