@@ -25,7 +25,7 @@ const Products = (props) => {
               <h3>{item.product_name}</h3>
               <p>{item.product_desc}</p>
               <img src={item.product_img} alt="card-photo"/>
-              <p><a href={item.ref_link}>Sign Up</a></p>
+              <p><a href={item.ref_link} target="_blank">Sign Up</a></p>
             </div>
           )
         })
