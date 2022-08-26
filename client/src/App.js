@@ -4,7 +4,7 @@ import {
   Route,
   useNavigate,
 } from 'react-router-dom';
-import Products from './components/Products.js';
+import Crypto from './components/Crypto.js';
 import Navbar from './components/Navbar';
 import Home from './components/Home.js';
 import CreditCards from './components/CreditCards';
@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/testapi" element={<CreditCards />}/>
-        <Route path="b" element={<Products />}/>
+        <Route path="/creditcards" element={<CreditCards />}/>
+        <Route path="crypto" element={<Crypto />}/>
         <Route path="/" element={<Home/>}/>
         <Route path="/a" element={<Home/>}/>
       </Routes>

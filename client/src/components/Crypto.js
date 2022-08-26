@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const Products = (props) => {
+const Crypto = (props) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch(`/backend/products/all`)
@@ -34,4 +34,4 @@ const Products = (props) => {
   )
 }
 
-export default Products;
+export default Crypto;
