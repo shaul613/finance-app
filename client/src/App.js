@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/creditcards" element={<CreditCards />}/>
-        <Route path="/testapi" element={<Products />}/>
+        <Route path="/testapi" element={<CreditCards />}/>
+        <Route path="b" element={<Products />}/>
         <Route path="/" element={<Home/>}/>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/a" element={<Home/>}/>
       </Routes>
     </div>
   );
