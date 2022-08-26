@@ -21,11 +21,13 @@ const CreditCards = (props) => {
       {
         products.map(item => {
           return(
-            <div key={item.product_id}>
-              <h3>{item.product_name}</h3>
-              <p>{item.product_desc}</p>
-              <img src={item.product_img} alt="card-photo"/>
-              <p><a href={item.ref_link} target="_blank">Sign Up</a></p>
+            <div key={item.product_id} className="financial_product cc_product">
+              <h3 className="product_title cc_title"><a href='#'>{item.product_name}</a></h3>
+              <img className="product_img cc_img" src={item.product_img} alt="card-photo"/>
+              <p className="product_sub cc_sub">Sign Up Bonus: -placeholder- $200 {"item.product_sub"}</p>
+              <p  className="cc_score">Credit Score: {'{-placeholder- item.credit_score}'}</p>
+              <p className="product_desc cc_desc">{item.product_desc}</p>
+              <p className="product_ref cc_ref"><a href={item.ref_link} target="_blank">Sign Up</a></p>
             </div>
           )
         })

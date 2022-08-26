@@ -17,7 +17,7 @@ function App() {
         <Route path="/creditcards" element={<CreditCards />}/>
         <Route path="crypto" element={<Crypto />}/>
         <Route path="/" element={<Home/>}/>
-        <Route path="/a" element={<Home/>}/>
+        <Route path="/about" element={<Home/>}/>
       </Routes>
     </div>
   );
