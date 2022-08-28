@@ -15,20 +15,7 @@ const NotFound = (props) => {
   return(
     <div>
       <h1>404: Page Not Found</h1>
-      {
-        useEffect(() => {
-
-          setTimeout(() => {
-            navigate('/');
-          }, 5000);
-
-          setInterval(() => {
-            setTime(time-1);
-          }, 1000);
-
-        })
-      }
-      <p>You'll be redirected to home page in {time} seconds</p>
+      <p><a href='/'>Click here to go back to home page</a></p>
     </div>
   )
 }

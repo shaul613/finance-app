@@ -1,7 +1,5 @@
 import {
   Link,
-  Routes,
-  Route,
   useNavigate,
 } from 'react-router-dom';
 import {
@@ -10,11 +8,8 @@ import {
 } from 'react';
 import {
   Button,
-  Stack,
   Tabs,
   Tab,
-  AppBar,
-  ToolBar,
   Box,
 } from '@mui/material';
 
