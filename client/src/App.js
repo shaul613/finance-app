@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/404" element={<NotFound />}/>
+        <Route path="/*" element={<NotFound />}/>
         <Route path="/creditcards" element={<CreditCards />}/>
         <Route path="crypto" element={<Crypto />}/>
         <Route path="/" element={<Home/>}/>
