@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 20vh;
 }
 
 .App-logo {
@@ -36,4 +37,12 @@
 
 #navbar{
   background-color: #dfca81;
+  position: fixed;
+  width: 100vw;
+  max-height: 5vh;
+  top:0;
+  left: 0;
+}
+#navbar::after{
+  content: '';
 }
