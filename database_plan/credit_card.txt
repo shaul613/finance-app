@@ -1,0 +1,4 @@
+product_id, (pk)
+cc_sub,
+cc_score,
+cc_interest,

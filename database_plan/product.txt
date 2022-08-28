@@ -5,5 +5,5 @@ product_name,
 product_img,
 product_desc,
 product_ref_link,
-product_sub,
 product_exp, (expiration date)
+product_display, (bool)

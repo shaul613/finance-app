@@ -1,0 +1,2 @@
+type_id, (pk)
+type_name,

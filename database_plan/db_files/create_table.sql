@@ -1,0 +1,44 @@
+create table products_test(
+	product_id serial not null primary key,
+	product_name varchar(255) not null,
+	product_desc varchar(5000) not null,
+	ref_link varchar(1024),
+	product_img varchar(1024)
+);
+
+insert into products_test(product_name, product_desc, ref_link, product_img)
+values
+	('Hello',
+	 'some desc',
+	 'https://www.americanexpress.com/en-us/credit-cards/referral/prospect/personal/9E9319A6C9C420576FC956683E764A9C378A3C7EFCFF16653AD8900CBF5BDBCD42F5FB1476008E147D110F431F952A8C73F501BE36D9728164FDD9FF86EB099B922ED55EC83D9B99C35BEB8A8E4F4B9208C54D6AD6BC791C5BD2C27D80FABDB2916D157A6EDAC77961B3AD5B9A03C5CCC5D62005F02EFFFDB3C95C5222C4D9B0?XLINK=MYCP',
+	 'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/OneSite/category/cardarts/amex-everyday-preferred.png'
+	)
+
+select * from product_issuer
+
+create table product(
+		product_id serial not null primary key,
+		product_issuer integer not null references product_issuer(issuer_id),
+		product_type integer not null references product_type(type_id),
+		product_name varchar(255) not null,
+		product_img varchar(1024) not null,
+		product_desc varchar(10000),
+		product_ref_link varchar(1024) not null,
+		product_exp timestamp not null,
+		product_display boolean not null default false
+)
+
+insert into product (product_issuer, product_type, product_name, product_img, product_desc,
+					product_ref_link, product_exp, product_display)
+values (
+	(select issuer_id from product_issuer where issuer_name Like 'American Express'),
+	(select type_id from product_type where type_name Like 'Credit Card'),
+	'American Express® Gold Card',
+	'https://icm.aexp-static.com/acquisition/card-art/NUS000000174_480x304_straight_withname.png',
+	'You can earn 4X on dining and groceries, 3X on filghts, and 1X on all other purchases. You also get $120 Uber credit annualy towards Uber rides and a $120 dining credit.',
+	'https://www.americanexpress.com/en-us/credit-cards/referral/prospect/personal/9E9319A6C9C420576FC956683E764A9C378A3C7EFCFF16653AD8900CBF5BDBCD42F5FB1476008E144691E769D0F60E9073F501BE36D97281FBF2C2BCC148263422F7749EE1EBF29296467BD13920CE9C08C54D6AD6BC791C5BD2C27D80FABDB257FAE08EA1C781753DB9AAED0B43DACFC5D62005F02EFFFDB3C95C5222C4D9B0?XLINK=MYCP',
+	(select now() + interval '2 week'),
+	true
+)
+
+select * from product
