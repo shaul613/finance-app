@@ -10,6 +10,8 @@ import {
   Stack,
   Tabs,
   Tab,
+  AppBar,
+  ToolBar,
 } from '@mui/material';
 
 const Navbar = (props) => {
@@ -23,10 +25,10 @@ const Navbar = (props) => {
   return(
     <div className="navbar">
       <Tabs value={tabval} onChange={handleChange} centered>
-        <Tab label="Home"/>
-        <Tab label="Credit Cards"/>
-        <Tab label="Crypto" />
-        <Tab label="About Us" />
+        <Tab label="Home" href='/'/>
+        <Tab label="Credit Cards" href='creditcards'/>
+        <Tab label="Crypto" href='crypto'/>
+        <Tab label="About Us" href='about'/>
       </Tabs>
     </div>
   )
