@@ -1,0 +1,3 @@
+issuer_id, (pk)
+issuer_name, (name)
+issuer_type, (cc, bank, invest, crypto, etc)

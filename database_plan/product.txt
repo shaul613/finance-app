@@ -1,0 +1,7 @@
+product_id, (pk)
+issuer_id, (fk, product_issuers)
+proeuct_type, (fk - prodcut_types)
+product_name,
+product_img,
+product_desc,
+product_ref_link,
