@@ -47,6 +47,27 @@ body{
   top:0;
   left: 0;
 }
-#navbar::after{
+
+#page_container{
+  position: relative;
+  /* height: 100vh; */
+}
+
+#content_wrap{
+
+}
+
+#footer{
+  bottom:0;
+  width:100vw;
+  background-color: black;
+  color:white;
+}
+
+/* #footer::after{
   content: '';
+} */
+
+#not_found{
+  margin-bottom: 30vh;
 }

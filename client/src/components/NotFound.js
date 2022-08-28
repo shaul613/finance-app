@@ -13,7 +13,7 @@ const NotFound = (props) => {
   const navigate = useNavigate();
 
   return(
-    <div>
+    <div id="not_found">
       <h1>404: Page Not Found</h1>
       <p><a href='/'>Click here to go back to home page</a></p>
     </div>

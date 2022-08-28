@@ -9,18 +9,24 @@ import Navbar from './components/Navbar';
 import Home from './components/Home.js';
 import CreditCards from './components/CreditCards';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer.js';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/*" element={<NotFound />}/>
-        <Route path="/creditcards" element={<CreditCards />}/>
-        <Route path="crypto" element={<Crypto />}/>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<Home/>}/>
-      </Routes>
+      <div id="page_container">
+        <div id='content_wrap'>
+          <Navbar />
+          <Routes>
+            <Route path="/*" element={<NotFound />}/>
+            <Route path="/creditcards" element={<CreditCards />}/>
+            <Route path="crypto" element={<Crypto />}/>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/about" element={<Home/>}/>
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 }
