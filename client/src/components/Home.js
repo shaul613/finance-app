@@ -36,16 +36,20 @@ const Home = (props) => {
 
   return(
     <div>
-      <h1>Welcome to my website</h1>
+      <h1></h1>
+      <div id='three_random_cards'>
       {
         randomCards.map(item => {
           return(
             <div key={item.product_id}>
-              <h1>{item.product_name}</h1>
+              <h3>{item.product_name}</h3>
+              <img src={item.product_img} className="product_img cc_img"/>
+              <p className="product_sub cc_sub">Sign Up Bonus: -placeholder- $200 {"item.product_sub"}</p>
             </div>
           )
         })
       }
+      </div>
       <h1>end</h1>
     </div>
   )

@@ -13,21 +13,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +20,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cc_img{
+  max-width: 25vw;
+}
+
+#three_random_cards{
+  display: flex;
+  align-items: center;
+  align-self: auto;
+  justify-content: center;
+  gap:4vw;
 }
