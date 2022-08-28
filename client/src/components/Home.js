@@ -18,30 +18,35 @@ const Home = (props) => {
     return threeRandomProducts;
   }
 
-
-
   useEffect(() => {
-    let test = [1,2,3,4,5,6,7,8];
-    getRandomThree(test);
-    console.log(`whats left -> ${test}`);
-    // fetch(`/backend/products/all`)
-    // .then(res => {
-    //   if(res.status === 200){
-    //     return res.json();
-    //   }
-    // })
-    // .then(data => {
-    //
-    //   setRandomCards(data);
-    // })
-    // .catch(e => {
-    //   console.log(e);
-    // })
+    fetch(`/backend/products/all`)
+    .then(res => {
+      if(res.status === 200){
+        return res.json();
+      }
+    })
+    .then(data => {
+      const cards = getRandomThree(data);
+      setRandomCards(cards);
+    })
+    .catch(e => {
+      console.log(e);
+    })
   },[])
 
   return(
     <div>
       <h1>Welcome to my website</h1>
+      {
+        randomCards.map(item => {
+          return(
+            <div key={item.product_id}>
+              <h1>{item.product_name}</h1>
+            </div>
+          )
+        })
+      }
+      <h1>end</h1>
     </div>
   )
 
