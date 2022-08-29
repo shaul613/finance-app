@@ -56,3 +56,34 @@ insert into cc values (
 	700,
 	'18.24% to 25.24%'
 )
+
+insert into product (product_issuer, product_type, product_name, product_img, product_desc,
+					product_ref_link, product_exp, product_display)
+values (
+	(select issuer_id from product_issuer where issuer_name Like 'Gemini'),
+	(select type_id from product_type where type_name Like 'Crypto'),
+	'Gemini',
+	'https://www.gemini.com/_next/static/images/gemini-hor-dark-full-rgb@3x-9ca366d2cb2926cddbbfcb1cdfbcae77.png.webp',
+	'Purchase from over 100 cryptocurrencies with the option to earn interest at higher rates than traditional savings accounts. Gemini also offers other a credit card that earns rewards in a crypto of your choice. Sign up with the link below to get started!',
+	'https://gemini.com/share/ee84p5te',
+	(select now() + interval '2 week'),
+	true
+)
+
+insert into product_issuer(issuer_name)
+values ('Gemini')
+
+create table crypto_exchange(
+	crypto_exchange_id integer not null primary key references product(product_id),
+	crypto_exchange_sub varchar(255),
+	trading_fees varchar(512) not null
+)
+
+insert into crypto_exchange
+values(
+	(select product_id from product where product_name Like 'Gemini'),
+	'$10 in Bitcoin',
+	'Depending on currency. Lower fees for trading via Gemini''s ActiveTrader platform see <a href=''https://www.gemini.com/fees''>fee schedule<a/> for more details.'
+)
+
+select * from crypto_exchange
