@@ -44,7 +44,7 @@ values (
 select * from product
 
 create table cc(
-	cc_id serial not null primary key references product(product_id),
+	cc_id integer not null primary key references product(product_id),
 	cc_sub varchar(255),
 	cc_score integer not null,
 	cc_interest varchar(64)
