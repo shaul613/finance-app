@@ -42,3 +42,17 @@ values (
 )
 
 select * from product
+
+create table cc(
+	cc_id serial not null primary key references product(product_id),
+	cc_sub varchar(255),
+	cc_score integer not null,
+	cc_interest varchar(64)
+)
+
+insert into cc values (
+	(select product_id from product where product_name Like 'American Express® Gold Card'),
+	'75,000 points for a limited time only!!! After spending $4,000 in the first 6 months.',
+	700,
+	'18.24% to 25.24%'
+)
