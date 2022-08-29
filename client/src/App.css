@@ -71,3 +71,7 @@ body{
 #not_found{
   margin-bottom: 30vh;
 }
+
+.crypto_img{
+  width: 25vw;
+}
