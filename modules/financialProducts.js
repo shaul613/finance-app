@@ -12,3 +12,10 @@ export const allCreditCards = () => {
   .join('product', 'product.product_id', '=', 'cc.cc_id')
   .orderBy('product.product_id')
 }
+
+export const allCrypto = () => {
+  return db('crypto_exchange')
+  .select('*')
+  .join('product', 'product.product_id', '=', 'crypto_exchange.crypto_exchange_id')
+  .orderBy('product.product_id')
+}

@@ -83,7 +83,8 @@ insert into crypto_exchange
 values(
 	(select product_id from product where product_name Like 'Gemini'),
 	'$10 in Bitcoin',
-	'Depending on currency. Lower fees for trading via Gemini''s ActiveTrader platform see <a href=''https://www.gemini.com/fees''>fee schedule<a/> for more details.'
+	'Depending on currency. Lower fees for trading via Gemini''s ActiveTrader platform see <a href=''https://www.gemini.com/fees''>fee schedule</a> for more details.'
 )
 
 select * from crypto_exchange
+join product on product_id = crypto_exchange_id
