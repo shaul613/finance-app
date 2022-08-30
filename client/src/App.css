@@ -143,3 +143,16 @@ body{
 .changeToRed{
   color:red;
 }
+
+#comments{
+  margin-bottom: 15vh;
+}
+
+#addMsg{
+  border-radius: 25px;
+  background-color: lightgrey;
+  /* width: 50vw; */
+  padding:1%;
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
