@@ -19,3 +19,12 @@ export const allCrypto = () => {
   .join('product', 'product.product_id', '=', 'crypto_exchange.crypto_exchange_id')
   .orderBy('product.product_id')
 }
+
+export const addMsg = (title, name, body) => {
+  return db('msg')
+  .insert({
+    msg_title:title,
+    msg_name:name,
+    msg_body:body
+  })
+}
