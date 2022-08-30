@@ -6,11 +6,11 @@ const Comments = (props) => {
       <h1>Feedback And Comments</h1>
       <p><a href='#addMsg'>Add A Comment</a></p>
       <div id="all_msg">
-        {
-          fetch('/hello')
+        {/*
+          fetch('/backend/products/msg_all')
           .then(res => res.json())
           .then(data => {
-            data.map(item, () => {
+            data.map(item => {
               return(
                 <div key={item.msg_id}>
                   <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body}/>
@@ -18,7 +18,7 @@ const Comments = (props) => {
               )
             })
           })
-        }
+        */}
       </div>
       <div id='addMsg'>
         <h4>Add A Comment</h4>

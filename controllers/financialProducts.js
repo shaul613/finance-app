@@ -2,6 +2,7 @@ import {
   getAllProducts,
   allCreditCards,
   allCrypto,
+  addMsg,
 } from '../modules/financialProducts.js';
 
 export const _getAllProducts = (req, res) => {
@@ -32,5 +33,12 @@ export const _allCrypto = (req, res) => {
   .catch(e => {
     console.log(e);
     res.status(404).json({msg:'404 Not Found ', e})
+  })
+}
+
+export const _addMsg = (req, res) => {
+  addMsg(req.body.title, req.body.name, req.body.body)
+  .catch(e => {
+    console.log(e);
   })
 }
