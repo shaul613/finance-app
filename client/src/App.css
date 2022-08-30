@@ -99,19 +99,34 @@ body{
 
 .home_page_button{
   background-color: #0153d5cf !important;
-  margin: 10px !important;
+  margin-top: 10px !important;
   color:white !important;
 }
 
 .product_list{
-  width: 50vw;
-  margin-left: 25vw;
-  margin-right: 25vw;
+  margin-top:10vh;
 }
 
 #top_bar{
-  background-color: green;
+  background-color: #597cdc5e;
   height: 30vh;
   margin-left: 5vw;
   margin-right: 5vw;
+  border-radius:25px;
+}
+
+.financial_product{
+  margin-left: 10vw;
+  margin-right: 10vw;
+  /* margin-bottom: 15vh; */
+  display: flex;
+  gap:5vw;
+}
+
+.product_item{
+  margin-bottom: 15vh;
+}
+
+.product_ref{
+  /* background-color: yellow !important; */
 }
