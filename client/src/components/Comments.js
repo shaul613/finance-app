@@ -1,24 +1,37 @@
 import Msg from './Msg';
+import {
+  useState,
+  useEffect
+} from 'react';
 
 const Comments = (props) => {
+
+  const [msg, setMsg] = useState([]);
+
+  useEffect(() => {
+    fetch('/backend/products/all_msg')
+    .then(res => res.json())
+    .then(data => {
+      data.map(item => {
+        setMsg(data)
+      })
+    })
+  }, [])
+
   return(
     <div id='comments'>
       <h1>Feedback And Comments</h1>
       <p><a href='#addMsg'>Add A Comment</a></p>
       <div id="all_msg">
-        {/*
-          fetch('/backend/products/msg_all')
-          .then(res => res.json())
-          .then(data => {
-            data.map(item => {
-              return(
-                <div key={item.msg_id}>
-                  <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body}/>
-                </div>
-              )
-            })
+        {
+          msg.map(item => {
+            return(
+              <div key={item.msg_id}>
+                <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body}/>
+              </div>
+            )
           })
-        */}
+        }
       </div>
       <div id='addMsg'>
         <h4>Add A Comment</h4>

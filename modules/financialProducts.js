@@ -28,3 +28,9 @@ export const addMsg = (title, name, msgbody) => {
     msg_body:msgbody
   })
 }
+
+export const allMsg = () => {
+  return db('msg')
+  .select('*')
+  .returning('*');
+}
