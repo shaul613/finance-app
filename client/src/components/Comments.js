@@ -21,7 +21,7 @@ const Comments = (props) => {
   return(
     <div id='comments'>
       <h1>Feedback And Comments</h1>
-      <p><a href='#addMsg'>Add A Comment</a></p>
+      <p><a href='#addMsg'>Write A Comment</a></p>
       <div id="all_msg">
         {
           msg.map(item => {
@@ -43,12 +43,12 @@ const Comments = (props) => {
             <small>Leave blank if you prefer to stay anonymous</small>
           </p>
           <p>
-            <label>Title* </label><input name='title'/>
+            <label>Title* </label><input name='title' required/>
           </p>
           <p>
             <label>Message*</label>
             <br />
-            <textarea name='msgbody' rows='8' columns='100'></textarea>
+            <textarea name='msgbody' rows='8' columns='100' required></textarea>
           </p>
           <button type='submit'>Submit</button>
         </form>
