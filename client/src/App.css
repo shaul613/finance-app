@@ -98,5 +98,7 @@ body{
 }
 
 .home_page_button{
-  background-color: blue;
+  background-color: #0153d5cf !important;
+  margin: 10px !important;
+  color:white !important;
 }
