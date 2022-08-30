@@ -40,7 +40,8 @@ body{
 }
 
 #navbar{
-  background-color: #dfca81;
+  /* background-color: #dfca81; */
+  background-color: #e83939;
   position: fixed;
   width: 100vw;
   max-height: 5vh;
@@ -80,8 +81,10 @@ body{
   width: 25vw;
   height: 70vh;
   border:black solid 1px;
-  background-color: #69b0b063;
+  /* background-color: #69b0b063; */
+  background-color: #cba543;
   padding:1%;
+  border-radius: 25px;
 }
 
 .random_cards_list{
@@ -116,17 +119,27 @@ body{
 }
 
 .financial_product{
-  margin-left: 10vw;
-  margin-right: 10vw;
+
   /* margin-bottom: 15vh; */
   display: flex;
   gap:5vw;
 }
 
 .product_item{
+  margin-left: 10vw;
+  margin-right: 10vw;
   margin-bottom: 15vh;
+  /* padding-left: 1vw;
+  padding-right: 1vw; */
+  padding:2%;
+  /* border:solid black 1px; */
+  background-color: #e7e082f2;
 }
 
 .product_ref{
   /* background-color: yellow !important; */
+}
+
+.changeToRed{
+  color:red;
 }
