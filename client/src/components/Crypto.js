@@ -21,6 +21,7 @@ const Crypto = (props) => {
     <div>
       {
         products.map(item => {
+          console.log(parse(item.trading_fees));
           return(
             <div key={item.product_id}>
               <h3>{item.product_name}</h3>
