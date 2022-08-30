@@ -8,7 +8,7 @@ const Home = (props) => {
   const [randomCrypto, setRandomCrypto] = useState([]);
 
   const getRandomThree = (productsArr) => {
-    console.log(`original array ${productsArr}`);
+    // console.log(`original array ${productsArr}`);
     let threeRandomProducts = [];
     const arrLength = productsArr.length;
     for(let i=0; i<3 && i<arrLength; i++){
@@ -16,9 +16,9 @@ const Home = (props) => {
       const item = productsArr[randomIndex];
       threeRandomProducts.push(item);
       productsArr.splice(randomIndex, 1);
-      console.log(`i == ${i}. new arr -> ${productsArr}`);
+      // console.log(`i == ${i}. new arr -> ${productsArr}`);
     }
-    console.log('random three -> ', threeRandomProducts);
+    // console.log('random three -> ', threeRandomProducts);
     return threeRandomProducts;
   }
 
