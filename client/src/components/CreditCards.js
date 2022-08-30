@@ -18,7 +18,7 @@ const CreditCards = (props) => {
     })
   },[])
   return(
-    <div>
+    <div className='product_list'>
       {
         products.map(item => {
           return(

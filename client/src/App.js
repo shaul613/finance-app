@@ -10,6 +10,7 @@ import Home from './components/Home.js';
 import CreditCards from './components/CreditCards';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer.js';
+import TopBar from './components/TopBar';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <div id="page_container">
         <div id='content_wrap'>
           <Navbar />
+          <TopBar />
           <Routes>
             <Route path="/*" element={<NotFound />}/>
             <Route path="/creditcards" element={<CreditCards />}/>
