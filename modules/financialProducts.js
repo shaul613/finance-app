@@ -20,11 +20,11 @@ export const allCrypto = () => {
   .orderBy('product.product_id')
 }
 
-export const addMsg = (title, name, body) => {
+export const addMsg = (title, name, msgbody) => {
   return db('msg')
   .insert({
     msg_title:title,
     msg_name:name,
-    msg_body:body
+    msg_body:msgbody
   })
 }

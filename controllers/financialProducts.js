@@ -37,7 +37,8 @@ export const _allCrypto = (req, res) => {
 }
 
 export const _addMsg = (req, res) => {
-  addMsg(req.body.title, req.body.name, req.body.body)
+  // console.log(req.body.msgbody);
+  addMsg(req.body.title, req.body.name, req.body.msgbody)
   .catch(e => {
     console.log(e);
   })
