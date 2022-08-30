@@ -1,7 +1,11 @@
 import {useState, useEffect} from 'react';
+import {
+  Button,
+} from '@mui/material';
 
 const Home = (props) => {
   const [randomCards, setRandomCards] = useState([]);
+  const [randomCrypto, setRandomCrypto] = useState([]);
 
   const getRandomThree = (productsArr) => {
     console.log(`original array ${productsArr}`);
@@ -19,7 +23,7 @@ const Home = (props) => {
   }
 
   useEffect(() => {
-    fetch(`/backend/products/all`)
+    fetch(`/backend/products/cc_all`)
     .then(res => {
       if(res.status === 200){
         return res.json();
@@ -31,26 +35,60 @@ const Home = (props) => {
     })
     .catch(e => {
       console.log(e);
+    });
+    fetch(`/backend/products/crypto_all`)
+    .then(res => {
+      if(res.status === 200){
+        return res.json();
+      }
     })
+    .then(data => {
+      const cards = getRandomThree(data);
+      setRandomCrypto(cards);
+    })
+    .catch(e => {
+      console.log(e);
+    });
   },[])
 
   return(
     <div>
       <h1></h1>
-      <div id='three_random_cards'>
-      {
-        randomCards.map(item => {
-          return(
-            <div key={item.product_id}>
-              <h3>{item.product_name}</h3>
-              <img src={item.product_img} className="product_img cc_img"/>
-              <p className="product_sub cc_sub">Sign Up Bonus: -placeholder- $200 {"item.product_sub"}</p>
-            </div>
-          )
-        })
-      }
+      <div className='random_cards_list'>
+        <div className='three_random_cards'>
+        {
+          randomCards.map(item => {
+            return(
+              <div key={item.cc_id} className="home_page_card home_page_item">
+                <h3><a href={item.product_ref_link}>{item.product_name}</a></h3>
+                <img src={item.product_img} className="product_img cc_img"/>
+                <p className="product_sub cc_sub"><b>Sign Up Bonus: {item.cc_sub}</b></p>
+                <p><a href={item.product_ref_link}>Get Card!</a></p>
+              </div>
+            )
+          })
+        }
+        </div>
+        <Button className="home_page_button" href='/creditcards'>See All Cards</Button>
       </div>
-      <h1>end</h1>
+      <div className='random_crypto_list'>
+        <div className='three_random_cards'>
+        {
+          randomCrypto.map(item => {
+            return(
+              <div key={item.crypto_exchange_id} className="home_page_crypto home_page_item">
+                {/*<h3><a href={item.product_ref_link}>{item.product_name}</a></h3>*/}
+                <img src={item.product_img} className="product_img crypto_img"/>
+                <p className="product_sub crypto_sub"><b>Sign Up Bonus: {item.crypto_exchange_sub}</b></p>
+                <p><a href={item.product_ref_link}>Sign Up!</a></p>
+              </div>
+            )
+          })
+        }
+        </div>
+        <Button className="home_page_button" href='/crypto'>See All Crypto Exchanges</Button>
+      </div>
+
     </div>
   )
 

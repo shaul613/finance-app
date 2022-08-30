@@ -26,7 +26,7 @@ const Navbar = (props) => {
     <div>
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
         <Tabs value={false} onChange={handleChange} centered id='navbar'>
-          {/*<Tab component={Link} to='/' label="Home"/>*/}
+          <Tab component={Link} to='/' label="Home"/>
           <Tab component={Link} to='/creditcards' label="Credit Cards"/>
           <Tab component={Link} to='/crypto' label="Crypto" />
           <Tab component={Link} to='/loans_banking' label="Loans And Banking" />
