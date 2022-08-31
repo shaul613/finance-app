@@ -16,6 +16,18 @@ create table msg(
   msg_body varchar(10000) not null
 )
 
-select * from msg
+select * from msg_likes
 
-alter table msg add ip_address varchar(1024)
+alter table msg add msg_likes integer default 0
+
+
+create table msg_likes(
+  	like_id serial not null primary key,
+	msg_id integer not null references msg(msg_id),
+	like_ip_address varchar(1024) not null
+)
+
+select m.*, (select count(*) from msg_likes l where l.msg_id = m.msg_id)
+from msg m
+group by m.msg_id
+order by m.msg_id

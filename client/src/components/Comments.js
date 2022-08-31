@@ -75,7 +75,7 @@ const Comments = (props) => {
       <div id='addMsg'>
         <h4>Add A Comment</h4>
         <p>Drop some feedback about what you like, how I can imporve, or just tell us how your day's going!</p>
-        <form id='comment_form' action='/backend/products/add_msg' method='post'>
+        <form id='comment_form' action='/backend/msg/add_msg' method='post'>
 
           <p>
             <label>Your Name (optional) </label><input name='name' className='msg_input'/>
