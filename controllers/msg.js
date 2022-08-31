@@ -3,5 +3,9 @@ import {
 } from '../modules/msg.js';
 
 export const _addLikeToMsg = (req, res) => {
-  addLikeToMsg(req.params.id)
+  console.log('added like');
+  addLikeToMsg(req.body.id)
+  .catch(e => {
+    console.log(e);
+  })
 }

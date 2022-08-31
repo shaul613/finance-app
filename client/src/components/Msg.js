@@ -8,9 +8,8 @@ const Msg = (props) => {
       headers:{
         'Content-Type':'application/json',
       },
-      params:{id:id}
+      body:JSON.stringify({id:id})
     })
-    console.log('hello');
   }
 
   return(
