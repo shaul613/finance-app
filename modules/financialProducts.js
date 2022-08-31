@@ -21,6 +21,7 @@ export const allCrypto = () => {
 }
 
 export const addMsg = (title, name, msgbody) => {
+  name == '' ? name = 'Anonymous' : null;
   return db('msg')
   .insert({
     msg_title:title,

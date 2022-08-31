@@ -18,14 +18,15 @@ const Comments = (props) => {
     })
   }, [])
 
-  const handleSubmit = (e) => {
-    const form = document.getElementById('comment_form');
-    if(form.name.value === ''){
-      form.name.setAttribute('value', 'Anonymous');
-    }
-    console.log(form.name.value);
-    form.submit();
-  }
+  // const handleSubmit = (e) => {
+  //   const form = document.getElementById('comment_form');
+  //   if(form.name.value === ''){
+  //     form.name.value = null;
+  //     // form.name.setAttribute('value', 'Anonymous');
+  //   }
+  //   console.log(form.name.value);
+  //   form.submit();
+  // }
 
   // const handleNameChange = (e) => {
   //
@@ -63,7 +64,7 @@ const Comments = (props) => {
             <br />
             <textarea name='msgbody' rows='8' columns='100' required></textarea>
           </p>
-          <button type='button' onClick={handleSubmit}>Submit</button>
+          <button type='submit'>Submit</button>
         </form>
       </div>
     </div>
