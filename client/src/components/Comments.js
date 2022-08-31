@@ -14,7 +14,7 @@ const Comments = (props) => {
 
   const [msg, setMsg] = useState([]);
   const [likes, setLieks] = useState([]);
-  let likesArr = [];
+  let likesArr = {};
 
   useEffect(() => {
     fetch('/backend/msg/all_msg')
@@ -23,23 +23,22 @@ const Comments = (props) => {
       data.map(item => {
         setMsg(data);
         })
-      })
+      });
+
+
   }, [])
 
-  // const getLikes = () => {
-  //   // console.log(`msg array => ${msg.length}`);
-  //   msg.map(item => {
-  //     fetch(`backend/msg/get_likes/${item.msg_id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       likesArr.push(data);
-  //       setLieks(likesArr);
-  //       // console.log(likes);
-  //     })
-  //   })
-  // }
-
-  // getLikes();
+  useEffect(() => {
+    msg.map(item => {
+      fetch(`backend/msg/get_likes/${item.msg_id}`)
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        likesArr[item.msg_id] = data[0][`${item.msg_id}`];
+      })
+    })
+    console.log(likesArr);
+  }, [])
 
   return(
     <div id='comments'>
@@ -50,7 +49,7 @@ const Comments = (props) => {
           msg.map(item => {
             return(
               <div key={item.msg_id}>
-                <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body} id={item.msg_id} likes={item.msg_likes}/>
+                <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body} id={item.msg_id} likes={likesArr.msg_id}/>
               </div>
             )
           })

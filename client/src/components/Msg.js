@@ -23,7 +23,7 @@ const Msg = (props) => {
       <h4>Name: {props.name}</h4>
       <h3>{props.title}</h3>
       <p id='msg_body'>{props.body}</p>
-      <p>likes: {likes}</p>
+      <p>likes: {props.likes}</p>
       <button onClick={()=>like(props.id)}>Like</button>
     </div>
   )
