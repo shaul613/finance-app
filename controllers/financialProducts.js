@@ -39,7 +39,7 @@ export const _allCrypto = (req, res) => {
 
 export const _addMsg = (req, res) => {
   // console.log(req.body.msgbody);
-  addMsg(req.body.title, req.body.name, req.body.msgbody)
+  addMsg(req.body.title, req.body.name, req.body.msgbody, req.socket.remoteAddress)
   .then(()=>{
     res.redirect('/../../feedback');
   })

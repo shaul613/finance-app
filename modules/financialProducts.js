@@ -20,13 +20,14 @@ export const allCrypto = () => {
   .orderBy('product.product_id')
 }
 
-export const addMsg = (title, name, msgbody) => {
+export const addMsg = (title, name, msgbody, ip) => {
   name == '' ? name = 'Anonymous' : null;
   return db('msg')
   .insert({
     msg_title:title,
     msg_name:name,
-    msg_body:msgbody
+    msg_body:msgbody,
+    ip_address:ip
   })
 }
 
