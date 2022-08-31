@@ -1,6 +1,11 @@
-
+import {
+  useState,
+  useEffect
+} from 'react';
 
 const Msg = (props) => {
+
+  const [likes, setLikes] = useState(props.likes);
 
   const like = (id) => {
     fetch(`/backend/msg/like`,{
@@ -9,7 +14,8 @@ const Msg = (props) => {
         'Content-Type':'application/json',
       },
       body:JSON.stringify({id:id})
-    })
+    });
+    setLikes(setLikes+1);
   }
 
   return(
@@ -17,7 +23,7 @@ const Msg = (props) => {
       <h4>Name: {props.name}</h4>
       <h3>{props.title}</h3>
       <p id='msg_body'>{props.body}</p>
-      <p>likes: {props.likes}</p>
+      <p>likes: {likes}</p>
       <button onClick={()=>like(props.id)}>Like</button>
     </div>
   )
