@@ -17,7 +17,7 @@ const Comments = (props) => {
   let likesArr = [];
 
   useEffect(() => {
-    fetch('/backend/products/all_msg')
+    fetch('/backend/msg/all_msg')
     .then(res => res.json())
     .then(data => {
       data.map(item => {
@@ -26,20 +26,20 @@ const Comments = (props) => {
       })
   }, [])
 
-  const getLikes = () => {
-    // console.log(`msg array => ${msg.length}`);
-    msg.map(item => {
-      fetch(`backend/msg/get_likes/${item.msg_id}`)
-      .then(res => res.json())
-      .then(data => {
-        likesArr.push(data);
-        setLieks(likesArr);
-        // console.log(likes);
-      })
-    })
-  }
+  // const getLikes = () => {
+  //   // console.log(`msg array => ${msg.length}`);
+  //   msg.map(item => {
+  //     fetch(`backend/msg/get_likes/${item.msg_id}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       likesArr.push(data);
+  //       setLieks(likesArr);
+  //       // console.log(likes);
+  //     })
+  //   })
+  // }
 
-  getLikes();
+  // getLikes();
 
 
 

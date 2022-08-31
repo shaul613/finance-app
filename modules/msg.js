@@ -1,5 +1,24 @@
 import {db} from '../connections/db.js';
 
+export const addMsg = (title, name, msgbody, ip) => {
+  name == '' ? name = 'Anonymous' : null;
+  return db('msg')
+  .insert({
+    msg_title:title,
+    msg_name:name,
+    msg_body:msgbody,
+    ip_address:ip
+  })
+}
+
+export const allMsg = () => {
+  return db('msg')
+  .select('*')
+  .orderBy('msg_id')
+  .returning('*');
+}
+
+
 // export const addLikeToMsg = (id) => {
 //   return db('msg')
 //   .increment('msg_likes', 1)
