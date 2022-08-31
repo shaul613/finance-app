@@ -18,7 +18,7 @@ export const _addLikeToMsg = (req, res) => {
 }
 
 export const _getLikes = (req, res) => {
-  getLikes(req.body.id)
+  getLikes(req.params.id)
   .then(data => {
     res.json(data);
   })

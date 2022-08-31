@@ -7,6 +7,6 @@ import {
 const msgRouter = express.Router();
 
 msgRouter.post('/like', _addLikeToMsg);
-msgRouter.get('/get_likes', _getLikes);
+msgRouter.get('/get_likes/:id', _getLikes);
 
 export default msgRouter;

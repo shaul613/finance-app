@@ -13,16 +13,35 @@ import {
 const Comments = (props) => {
 
   const [msg, setMsg] = useState([]);
+  const [likes, setLieks] = useState([]);
+  let likesArr = [];
 
   useEffect(() => {
     fetch('/backend/products/all_msg')
     .then(res => res.json())
     .then(data => {
       data.map(item => {
-        setMsg(data)
+        setMsg(data);
+        })
+      })
+  }, [])
+
+  const getLikes = () => {
+    // console.log(`msg array => ${msg.length}`);
+    msg.map(item => {
+      fetch(`backend/msg/get_likes/${item.msg_id}`)
+      .then(res => res.json())
+      .then(data => {
+        likesArr.push(data);
+        setLieks(likesArr);
+        // console.log(likes);
       })
     })
-  }, [])
+  }
+
+  getLikes();
+
+
 
   // const handleSubmit = (e) => {
   //   const form = document.getElementById('comment_form');

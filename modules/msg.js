@@ -19,7 +19,7 @@ export const addLikeToMsg = (msg_id, like_ip_address) => {
 
 export const getLikes = (msg_id) => {
   return db('msg_likes')
-  .count(msg_id)
+  .count('msg_id', {as:msg_id})
   .where({msg_id})
   .returning('*')
   .catch(e => {

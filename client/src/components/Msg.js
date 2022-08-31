@@ -5,7 +5,7 @@ import {
 
 const Msg = (props) => {
 
-  const [likes, setLikes] = useState(props.likes);
+  const [likes, setLikes] = useState();
 
   const like = (id) => {
     fetch(`/backend/msg/like`,{
