@@ -18,6 +18,19 @@ const Comments = (props) => {
     })
   }, [])
 
+  const handleSubmit = (e) => {
+    const form = document.getElementById('comment_form');
+    if(form.name.value === ''){
+      form.name.setAttribute('value', 'Anonymous');
+    }
+    console.log(form.name.value);
+    form.submit();
+  }
+
+  // const handleNameChange = (e) => {
+  //
+  // }
+
   return(
     <div id='comments'>
       <h1>Feedback And Comments</h1>
@@ -36,9 +49,9 @@ const Comments = (props) => {
       <div id='addMsg'>
         <h4>Add A Comment</h4>
         <p>Drop some feedback about what you like, how I can imporve, or just tell us how your day's going!</p>
-        <form action='/backend/products/add_msg' method='post'>
+        <form id='comment_form' action='/backend/products/add_msg' method='post'>
           <p>
-            <label>Your Name (optional) </label><input name='name'/>
+            <label>Your Name (optional) </label><input name='name' />
             <br />
             <small>Leave blank if you prefer to stay anonymous</small>
           </p>
@@ -50,7 +63,7 @@ const Comments = (props) => {
             <br />
             <textarea name='msgbody' rows='8' columns='100' required></textarea>
           </p>
-          <button type='submit'>Submit</button>
+          <button type='button' onClick={handleSubmit}>Submit</button>
         </form>
       </div>
     </div>
