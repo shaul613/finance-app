@@ -34,5 +34,6 @@ export const addMsg = (title, name, msgbody, ip) => {
 export const allMsg = () => {
   return db('msg')
   .select('*')
+  .orderBy('msg_id')
   .returning('*');
 }
