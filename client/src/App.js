@@ -19,7 +19,7 @@ function App() {
       <div id="page_container">
         <div id='content_wrap'>
           <Navbar />
-          <TopBar />
+          {/*<TopBar />*/}
           <Routes>
             <Route path="/*" element={<NotFound />}/>
             <Route path="/creditcards" element={<CreditCards />}/>
