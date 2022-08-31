@@ -3,21 +3,23 @@
 const Msg = (props) => {
 
   const like = (id) => {
-    // fetch(`/something`,{
-    //   method:'POST',
-    //   headers:{
-    //     'Content-Type':'application/json',
-    //   },
-    //   body: JSON.stringify({name:addedItem, price:addedItemPrice})
-    // })
+    fetch(`/backend/msg/like`,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      params:{id:id}
+    })
     console.log('hello');
   }
+
   return(
     <div className='msg'>
       <h4>Name: {props.name}</h4>
       <h3>{props.title}</h3>
       <p id='msg_body'>{props.body}</p>
-      <button onClick={()=>like(props.id)}></button>
+      <p>likes: {props.likes}</p>
+      <button onClick={()=>like(props.id)}>Like</button>
     </div>
   )
 }

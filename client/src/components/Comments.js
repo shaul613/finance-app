@@ -47,7 +47,7 @@ const Comments = (props) => {
           msg.map(item => {
             return(
               <div key={item.msg_id}>
-                <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body} id={item.msg_id}/>
+                <Msg name={item.msg_name} title={item.msg_title} body={item.msg_body} id={item.msg_id} likes={item.msg_likes}/>
               </div>
             )
           })
