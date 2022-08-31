@@ -150,7 +150,7 @@ body{
 
 #addMsg{
   border-radius: 25px;
-  background-color: lightgrey;
+  background-color: #d9e6e8;
   /* width: 50vw; */
   padding:1%;
   margin-left: 25vw;
@@ -166,3 +166,8 @@ body{
   background-color: lightgrey;
   border-radius: 25px;
 }
+ #msg_body{
+   word-wrap: break-word;
+   margin-left: 3px;
+   margin-right: 3px;
+ }

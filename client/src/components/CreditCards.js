@@ -16,7 +16,6 @@ const CreditCards = (props) => {
       }
     })
     .then(data => {
-      console.log(data);
       setProducts(data);
     })
     .catch(e => {

@@ -62,7 +62,7 @@ const Comments = (props) => {
           <p>
             <label>Message*</label>
             <br />
-            <textarea name='msgbody' rows='8' columns='100' maxlength='5000' required></textarea>
+            <textarea name='msgbody' rows='8' columns='100' maxLength='5000' required></textarea>
           </p>
           <button type='submit'>Submit</button>
         </form>
