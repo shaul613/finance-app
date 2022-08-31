@@ -15,3 +15,7 @@ create table msg(
   msg_name varchar(64) default 'Anonymous' not null,
   msg_body varchar(10000) not null
 )
+
+select * from msg
+
+alter table msg add ip_address varchar(1024)
