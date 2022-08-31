@@ -13,11 +13,21 @@ export const addMsg = (title, name, msgbody, ip) => {
 
 export const allMsg = () => {
   return db('msg')
-  .select('*')
+  .select(
+    'msg.*',
+  //   db('msg_likes')
+  // .count('*')
+  // .where({msg_id:'msg.msg_id'})
+)
   .orderBy('msg_id')
   .returning('*');
 }
 
+export const getLikesForMessage = (id) => {
+  return db('msg_likes')
+  .count('*')
+  .where({msg_id:id})
+}
 
 // export const addLikeToMsg = (id) => {
 //   return db('msg')

@@ -41,22 +41,6 @@ const Comments = (props) => {
 
   // getLikes();
 
-
-
-  // const handleSubmit = (e) => {
-  //   const form = document.getElementById('comment_form');
-  //   if(form.name.value === ''){
-  //     form.name.value = null;
-  //     // form.name.setAttribute('value', 'Anonymous');
-  //   }
-  //   console.log(form.name.value);
-  //   form.submit();
-  // }
-
-  // const handleNameChange = (e) => {
-  //
-  // }
-
   return(
     <div id='comments'>
       <h1>Feedback And Comments</h1>
