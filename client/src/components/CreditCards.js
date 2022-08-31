@@ -39,7 +39,7 @@ const CreditCards = (props) => {
                   <p className="cc_score">Credit score needed (reccomended): {item.cc_score}</p>
                 </div>
               </div>
-              <p className="product_ref cc_ref"><Button href={item.product_ref_link} target="_blank">Sign Up</Button></p>
+              <p className="product_ref cc_ref"><Button variant='contained' href={item.product_ref_link} target="_blank">Sign Up</Button></p>
             </div>
           )
         })

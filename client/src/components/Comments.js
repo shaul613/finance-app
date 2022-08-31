@@ -3,6 +3,12 @@ import {
   useState,
   useEffect
 } from 'react';
+import {
+  FormControl,
+  Box,
+  Button,
+  TextField,
+} from '@mui/material';
 
 const Comments = (props) => {
 
@@ -51,20 +57,21 @@ const Comments = (props) => {
         <h4>Add A Comment</h4>
         <p>Drop some feedback about what you like, how I can imporve, or just tell us how your day's going!</p>
         <form id='comment_form' action='/backend/products/add_msg' method='post'>
+
           <p>
-            <label>Your Name (optional) </label><input name='name' />
+            <label>Your Name (optional) </label><input name='name' className='msg_input'/>
             <br />
             <small>Leave blank if you prefer to stay anonymous</small>
           </p>
           <p>
-            <label>Title* </label><input name='title' required/>
+            <label>Title* </label><input name='title' className='msg_input' required/>
           </p>
           <p>
             <label>Message*</label>
             <br />
-            <textarea name='msgbody' rows='8' columns='100' maxLength='5000' required></textarea>
+            <textarea name='msgbody' className='msg_input' rows='8' columns='100' maxLength='5000' required></textarea>
           </p>
-          <button type='submit'>Submit</button>
+          <button id='add_msg_button' variant='contained' type='submit'>Submit</button>
         </form>
       </div>
     </div>

@@ -171,3 +171,36 @@ body{
    margin-left: 3px;
    margin-right: 3px;
  }
+
+.msg_input{
+  outline: none;
+  border:none;
+  background-color: lightgrey;
+  resize: none;
+}
+
+.msg_input:focus{
+  outline: none;
+  /* border-bottom: solid black 1px; */
+}
+
+.msg_input:hover{
+  background: white;
+}
+
+#add_msg_button{
+  border-radius: 5px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border:none;
+  outline:none;
+  background-color: lightgrey;
+}
+
+#add_msg_button:hover{
+  background-color: white;
+  box-shadow: 10px;
+  cursor: pointer;
+}
