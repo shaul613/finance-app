@@ -15,7 +15,7 @@ const Msg = (props) => {
       },
       body:JSON.stringify({id:id})
     });
-    setLikes(setLikes+1);
+    setLikes(likes+1);
   }
 
   return(
