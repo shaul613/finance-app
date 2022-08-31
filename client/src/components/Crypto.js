@@ -40,7 +40,7 @@ const Crypto = (props) => {
                   <p className="crypto_fees">Fees: {parse(item.trading_fees)}</p>
                 </div>
               </div>
-              <p className="product_ref cc_ref"><Button href={item.product_ref_link} target="_blank">Sign Up</Button></p>
+              <p className="product_ref cc_ref"><button className='signup_btn'><a href={item.product_ref_link} target='_blank'>Sign Up</a></button></p>
             </div>
           )
         })

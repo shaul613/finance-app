@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {
   Link,
+  useNavigate,
 } from 'react-router-dom';
 import {
   Button,
@@ -8,6 +9,7 @@ import {
 
 const CreditCards = (props) => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`/backend/products/cc_all`)
     .then(res => {
@@ -39,7 +41,7 @@ const CreditCards = (props) => {
                   <p className="cc_score">Credit score needed (reccomended): {item.cc_score}</p>
                 </div>
               </div>
-              <p className="product_ref cc_ref"><Button variant='contained' href={item.product_ref_link} target="_blank">Sign Up</Button></p>
+              <p className="product_ref cc_ref"><button className='signup_btn'><a href={item.product_ref_link} target='_blank'>Sign Up</a></button></p>
             </div>
           )
         })

@@ -69,7 +69,7 @@ const Home = (props) => {
           })
         }
         </div>
-        <Button className="home_page_button" href='/creditcards'>See All Cards</Button>
+        <button className="home_page_button"><a href='/creditcards'>See All Cards</a></button>
       </div>
       <div className='random_crypto_list'>
         <div className='three_random_cards'>
@@ -86,7 +86,7 @@ const Home = (props) => {
           })
         }
         </div>
-        <Button className="home_page_button" href='/crypto'>See All Crypto Exchanges</Button>
+        <button className="home_page_button"><a href='/crypto'>See All Crypto Exchanges</a></button>
       </div>
 
     </div>
