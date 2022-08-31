@@ -4,7 +4,6 @@ import {
   allCrypto,
   addMsg,
   allMsg,
-  addLikeToMsg,
 } from '../modules/financialProducts.js';
 
 export const _getAllProducts = (req, res) => {
@@ -59,7 +58,3 @@ export const _allMsg = (req, res) => {
     res.status(404).json({msg:'404 Not Found'});
   })
 }
-
-// export const _addLikeToMsg = (req, res) => {
-//   addLikeToMsg()
-// }
