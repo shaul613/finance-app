@@ -12,19 +12,20 @@ export const insertCryptoNews = () => {
   };
   axios.request(options).then(function (response) {
   	console.log(response.data);
-  })
-  .then(data => {
-    db('crypto_news')
-    .del()
-    .then(() => {
-      db('cryptoNews')
+    response.data.map(item => {
+      db('crypto_news')
       .insert({
-        source:data.source,
-        title:data.title,
-        url:data.url
+        source:item.source,
+        title:item.title,
+        url:item.url
       })
-      .returning('*')
+      .catch(e => {
+        console.log(e);
+      })
     })
   })
+  // .then(data => {
+  //
+  // })
 	.catch(err => console.error(err));
 }
