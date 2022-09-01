@@ -262,3 +262,12 @@ body{
   background-color: white;
   border-radius: 25px;
 }
+
+#contact{
+  /* height: 60vh; */
+  margin-bottom: 20vh;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  background-color: grey;
+  padding:5vh 5vw 5vh 5vw;
+}

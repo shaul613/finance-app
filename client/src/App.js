@@ -13,6 +13,7 @@ import Footer from './components/Footer.js';
 import TopBar from './components/TopBar';
 import Comments from './components/Comments';
 import About from './components/About';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/feedback" element={<Comments/>}/>
+            <Route path="/contact" element={<Contact/>}/>
           </Routes>
         </div>
         <Footer />
