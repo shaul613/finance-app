@@ -1,6 +1,6 @@
 import {db} from '../connections/db.js';
 
-const insertCryptoNews = () => {
+export const insertCryptoNews = () => {
   const options = {
 	method: 'GET',
 	headers: {
@@ -10,12 +10,18 @@ const insertCryptoNews = () => {
   };
   fetch('https://crypto-news-live3.p.rapidapi.com/news', options)
 	.then(response => response.json())
-	.then(response => console.log(response))
-  // .then(() => {
-  //   db('crypto_news')
-  //   .insert({
-  //
-  //   })
-  // })
+  .then(data => {
+    db('crypto_news')
+    .del()
+    .then(() => {
+      db('cryptoNews')
+      .insert({
+        source:data.source,
+        title:data.title,
+        url:data.url
+      })
+      .returning('*')
+    })
+  })
 	.catch(err => console.error(err));
 }

@@ -4,6 +4,7 @@ import {db} from './connections/db.js';
 import router from './routes/financialProducts.js';
 import msgRouter from './routes/msg.js';
 import path from 'path';
+import cryptoNewsInsert from './db_insert/cryptoNews.js'
 
 const app = express();
 app.use(cors());
@@ -22,3 +23,5 @@ app.use('/backend/msg', msgRouter);
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname , './client/build','index.html'))
 })
+
+cryptoNewsInsert();
