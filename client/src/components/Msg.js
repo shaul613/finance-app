@@ -20,14 +20,14 @@ const Msg = (props) => {
   const [ip, setIp] = useState();
   const originalLikes = props.likes;
 
-  useEffect(() => {
-    fetch('https://api.ipify.org/?format=json')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      setIp(data);
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetch('https://api.ipify.org/?format=json')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     setIp(data);
+  //   })
+  // }, [])
 
   const like = (id) => {
     if(!liked){

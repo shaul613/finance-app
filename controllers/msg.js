@@ -30,16 +30,16 @@ export const _allMsg = (req, res) => {
 }
 
 export const _addLikeToMsg = (req, res) => {
-  const ip = req.headers['X-Forwarded-For'] || req.socket.remoteAddress;
-  isNotLiked(req.body.id, ip)
-  .then(data => {
-    if(data[0].count > 0){
-      throw new Error ('Not first!')
-    }
-  })
-  .then(() => {
+  // const ip = req.headers['X-Forwarded-For'] || req.socket.remoteAddress;
+  // isNotLiked(req.body.id, ip)
+  // .then(data => {
+  //   if(data[0].count > 0){
+  //     throw new Error ('Not first!')
+  //   }
+  // })
+  // .then(() => {
     addLikeToMsg(req.body.id)
-  })
+  // })
   .then(() => {
     addLikeToLikeTable(req.body.id, ip)
   })
