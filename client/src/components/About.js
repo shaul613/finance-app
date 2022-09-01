@@ -26,6 +26,30 @@ const About = (props) => {
           platform</i> for inserting new products into the database.
         </p>
       </div>
+      <div class='about_par'>
+        <h2>What's The Purpose Of This Website?</h2>
+        <p>
+          This website offers information about financial products, specifically cryptocurrency and credit cards.
+          Each product comes with a link to the issuer's website for more information and signing up, and some of
+          those links are actually refferal links, so if you plan on signing up for a product on the site, please
+          use my link, and you can also potentially get a higher sign up bonus with my link, depending on the product.
+        </p>
+      </div>
+      <div class='about_par'>
+        <h2>Why Did I Make This Website</h2>
+        <p>
+          I am a crypto and tech enthusiast, and it has always been my dream to create some sort of financial
+          project that involves crypto, but life is busy, and I did not have the time (nor the motivation) to
+          start such a huge project from scratch. Sure, I could have used one of the popular website builders, but
+          that's missing the point of making my own project...
+          <br />
+          But that changed with an amazing opportunity... At the time, I was attending a coding bootcamp at Developers
+          Institute in Tel Aviv, Israel. For our bootcamp final project, every student had to make a website suing the
+          full-stack skills they aquired in their studies, and we had 2 weeks to complete this project. Yes, 2 weeks!!!
+          And this was an amazing opportunity for me to put up my dream website because I have 2 weeks deticated for my
+          website.
+        </p>
+      </div>
     </div>
   )
 }
