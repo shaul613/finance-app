@@ -18,7 +18,7 @@ const Footer = (props) => {
         <li><a href='/news'>Crypto News (Coming Soon!)</a></li>
       </ul>
       </div>
-      <small>Created with love in Tel Aviv, Israel</small>
+      <small>Created with love in Tel Aviv, Israel - test</small>
     </div>
   )
 }
