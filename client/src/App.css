@@ -239,3 +239,11 @@ body{
   margin-left: 25vw;
   margin-right: 25vw;
 }
+
+.about_par{
+  margin-top:10vh;
+  margin-bottom: 10vh;
+  padding:5vh 5vw 5vh 5vw;
+  background-color: white;
+  border-radius: 25px;
+}

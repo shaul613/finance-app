@@ -50,6 +50,14 @@ const About = (props) => {
           website.
         </p>
       </div>
+      <div class='about_par'>
+        <h2>Did You Really Create This Site From Scratch?</h2>
+        <p>
+          Yes! Not completely from scratch but with a computer and text editor. I used many Node packages and
+          the React framework, but I wrote all of the code ranging from simple <i>div</i> tags in my React components
+          to the backend modules.
+        </p>
+      </div>
     </div>
   )
 }
