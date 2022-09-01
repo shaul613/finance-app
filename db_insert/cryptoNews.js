@@ -4,6 +4,7 @@ import {
 
 const cryptoNewsInsert = () => {
   setInterval(() => {
+    console.log('inserted news!');
     insertCryptoNews()
   }, 1000 * 60)
 }
