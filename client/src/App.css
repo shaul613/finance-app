@@ -44,7 +44,8 @@ body{
   background-color: #e83939;
   position: fixed;
   width: 100vw;
-  max-height: 5vh;
+  /* max-height: 5vh; */
+  height: 10vh;
   top:0;
   left: 0;
 }
@@ -63,6 +64,20 @@ body{
   width:100vw;
   background-color: black;
   color:white;
+  padding-bottom: 3vh;
+}
+
+#footer_list *{
+  color: white;
+  text-decoration: none;
+  text-align: left;
+}
+
+#footer_list{
+  /* width: 30vw;
+  margin-right: 60vw; */
+  display: flex;
+  gap:10vw;
 }
 
 /* #footer::after{
