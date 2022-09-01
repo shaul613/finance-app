@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding-top: 20vh;
+  padding-top: 10vh;
 }
 
 body{
@@ -140,12 +140,13 @@ body{
 }
 
 #top_bar{
-  background-color: green;
-  height: 30vh;
+  background-color: #9f571f6e;
+  /* height: 20vh; */
   /* margin-left: 5vw;
   margin-right: 5vw; */
   /* border-radius:25px; */
-  margin-bottom: 10vh;
+  padding-bottom: 2vh;
+  margin-bottom: 5vh;
 }
 
 .financial_product{

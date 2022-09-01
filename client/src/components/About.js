@@ -3,7 +3,7 @@
 const About = (props) => {
   return(
     <div id='about'>
-      <div class='about_par'>
+      <div className='about_par'>
         <h2>How Was This Site Created?</h2>
         <p>
           This site uses Node JS for its backend, React for its frontend, and Postgres for its DBMS.
@@ -26,7 +26,7 @@ const About = (props) => {
           platform</i> for inserting new products into the database.
         </p>
       </div>
-      <div class='about_par'>
+      <div className='about_par'>
         <h2>What's The Purpose Of This Website?</h2>
         <p>
           This website offers information about financial products, specifically cryptocurrency and credit cards.
@@ -35,7 +35,7 @@ const About = (props) => {
           use my link, and you can also potentially get a higher sign up bonus with my link, depending on the product.
         </p>
       </div>
-      <div class='about_par'>
+      <div className='about_par'>
         <h2>Why Did I Make This Website</h2>
         <p>
           I am a crypto and tech enthusiast, and it has always been my dream to create some sort of financial
@@ -50,7 +50,7 @@ const About = (props) => {
           website.
         </p>
       </div>
-      <div class='about_par'>
+      <div className='about_par'>
         <h2>Did You Really Create This Site From Scratch?</h2>
         <p>
           Yes! Not completely from scratch but with a computer and text editor. I used many Node packages and
