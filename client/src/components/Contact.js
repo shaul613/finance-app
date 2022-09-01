@@ -4,8 +4,8 @@ const Contact = (props) => {
   return(
     <div id='contact'>
       <h1>Contact Me - יצירת קשר</h1>
-      <h3>Here's how you can get in touch with me for business purposes:</h3>
-      <h3>:צור איתי קשר לצרכי עסקים בלבד</h3>
+      <h3>Here's how you can get in touch with me:</h3>
+      <h3>:צור איתי קשר</h3>
       <p>
         Phone - טלפון <br />
         +972-58-688-6039 (Israel ישראל) <br /> +1 (201) 688-6039 (US ארצות הברית)
