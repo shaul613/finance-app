@@ -29,16 +29,16 @@ export const addLikeToMsg = (id) => {
   .where('msg_id', '=', id)
 };
 
-// export const addLikeToMsg = (msg_id, like_ip_address) => {
-//   return db('msg_likes')
-//   .insert({
-//     msg_id,
-//     like_ip_address
-//   })
-//   .catch(e => {
-//     console.log(e);
-//   })
-// };
+export const addLikeToLikeTable = (msg_id, like_ip_address) => {
+  return db('msg_likes')
+  .insert({
+    msg_id,
+    like_ip_address
+  })
+  .catch(e => {
+    console.log(e);
+  })
+};
 
 export const getLikes = (msg_id) => {
   return db('msg_likes')

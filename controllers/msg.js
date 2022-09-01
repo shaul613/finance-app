@@ -3,6 +3,7 @@ import {
   allMsg,
   addLikeToMsg,
   getLikes,
+  addLikeToLikeTable,
 } from '../modules/msg.js';
 
 export const _addMsg = (req, res) => {
@@ -29,13 +30,16 @@ export const _allMsg = (req, res) => {
 
 export const _addLikeToMsg = (req, res) => {
   addLikeToMsg(req.body.id)
+  .then(() => {
+    addLikeToLikeTable(req.body.id, req.socket.remoteAddress)
+  })
   .catch(e => {
     console.log(e);
   })
 }
 
-// export const _addLikeToMsg = (req, res) => {
-//   addLikeToMsg(req.body.id, req.socket.remoteAddress)
+// export const _addLikeToLikeTable = (req, res) => {
+//   addLikeToLikeTable(req.body.id, req.socket.remoteAddress)
 //   .catch(e => {
 //     console.log(e);
 //   })
