@@ -4,7 +4,8 @@
 }
 
 body{
-  background-color: #b123231c;
+  /* background-color: #b123231c; */
+  background-color: #21334d7d;
 }
 
 .App-logo {
@@ -41,7 +42,7 @@ body{
 
 #navbar{
   /* background-color: #dfca81; */
-  background-color: #e83939;
+  background-color: #dcf0eb;
   position: fixed;
   width: 100vw;
   /* max-height: 5vh; */
@@ -95,9 +96,10 @@ body{
 .home_page_item{
   width: 25vw;
   height: 70vh;
-  border:black solid 1px;
+  /* border:black solid 1px; */
   /* background-color: #69b0b063; */
-  background-color: #cba543;
+  /* background-color: #cba543; */
+  background-color: #f0f4f45c;
   padding:1%;
   border-radius: 25px;
 }
@@ -138,11 +140,12 @@ body{
 }
 
 #top_bar{
-  background-color: #597cdc5e;
+  background-color: green;
   height: 30vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  border-radius:25px;
+  /* margin-left: 5vw;
+  margin-right: 5vw; */
+  /* border-radius:25px; */
+  margin-bottom: 10vh;
 }
 
 .financial_product{
@@ -196,7 +199,12 @@ body{
   background-color: lightgrey;
   border-radius: 25px;
 }
- #msg_body{
+
+.msg:nth-of-type(-n+11){
+  background-color: #cf6e6e;
+}
+
+#msg_body{
    word-wrap: break-word;
    margin-left: 3px;
    margin-right: 3px;

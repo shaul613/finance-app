@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {
   Button,
 } from '@mui/material';
+import TopBar from './TopBar';
 
 const Home = (props) => {
   const [randomCards, setRandomCards] = useState([]);
@@ -53,7 +54,7 @@ const Home = (props) => {
 
   return(
     <div>
-      <h1></h1>
+      <TopBar />
       <div className='random_cards_list'>
         <div className='three_random_cards'>
         {

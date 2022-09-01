@@ -19,6 +19,7 @@ const TopBar = (props) => {
   return(
     <div id='top_bar'>
       <h1>Please give your feedback in the <a href="/feedback">feedback and comments page!</a></h1>
+      <h3>The first 10 comments will be displayed in a special color, so hurry!</h3>
     </div>
   )
 }
