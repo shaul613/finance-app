@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: finance-di.herokuapp.com
+Token: b83c3d20228a9684cab32bc639b9e682c89424d61e4f28a03960285bcf64a4a8
