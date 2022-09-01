@@ -17,7 +17,17 @@ const Msg = (props) => {
   const [unliked, setUnliked] = useState(false);
   const [likeIcon, setLikeIcon] = useState(<ThumbUpOffAltIcon />);
   const [unlikeIcon, setUnlikeIcon] = useState(<ThumbDownOffAltIcon />);
+  const [ip, setIp] = useState();
   const originalLikes = props.likes;
+
+  useEffect(() => {
+    fetch('https://api.ipify.org/?format=json')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setIp(data);
+    })
+  })
 
   const like = (id) => {
     if(!liked){
