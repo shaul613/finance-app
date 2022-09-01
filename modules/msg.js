@@ -46,8 +46,12 @@ export const isNotLiked = (id, address) => {
   .whereNotExists(
     db('msg_likes')
     .select('*')
-    .whereRaw(`msg_id = ${id} and like_ip_address = ${address}`)
+    .whereRaw(`msg_id = ${id} and like_ip_address = '${address}'`)
   )
+  .returning('*')
+  .then(data => {
+    console.log(data);
+  })
   .catch(e => {
     console.log(e);
   })

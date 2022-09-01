@@ -4,6 +4,7 @@ import {
   addLikeToMsg,
   getLikes,
   addLikeToLikeTable,
+  isNotLiked,
 } from '../modules/msg.js';
 
 export const _addMsg = (req, res) => {
@@ -32,6 +33,9 @@ export const _addLikeToMsg = (req, res) => {
   addLikeToMsg(req.body.id)
   .then(() => {
     addLikeToLikeTable(req.body.id, req.socket.remoteAddress)
+  })
+  .then(() => {
+    isNotLiked(req.body.id, req.socket.remoteAddress)
   })
   .catch(e => {
     console.log(e);
