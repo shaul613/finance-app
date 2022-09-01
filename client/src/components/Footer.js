@@ -3,7 +3,7 @@
 const Footer = (props) => {
   return(
     <div id="footer">
-      <small>This is the footer</small>
+      <small>Created with love in Tel Aviv</small>
     </div>
   )
 }
