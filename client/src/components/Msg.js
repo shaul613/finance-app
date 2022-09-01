@@ -27,7 +27,7 @@ const Msg = (props) => {
       console.log(data);
       setIp(data);
     })
-  })
+  }, [])
 
   const like = (id) => {
     if(!liked){
