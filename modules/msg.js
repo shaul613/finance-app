@@ -40,6 +40,19 @@ export const addLikeToLikeTable = (msg_id, like_ip_address) => {
   })
 };
 
+export const isNotLiked = (id, address) => {
+  return db('msg_likes')
+  .count('*')
+  .whereNotExists(
+    db('msg_likes')
+    .select('*')
+    .whereRaw(`msg_id = ${id} and like_ip_address = ${address}`)
+  )
+  .catch(e => {
+    console.log(e);
+  })
+}
+
 export const getLikes = (msg_id) => {
   return db('msg_likes')
   .count('msg_id', {as:msg_id})
