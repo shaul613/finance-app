@@ -27,19 +27,19 @@ export const _allMsg = (req, res) => {
   })
 }
 
-// export const _addLikeToMsg = (req, res) => {
-//   addLikeToMsg(req.body.id)
-//   .catch(e => {
-//     console.log(e);
-//   })
-// }
-
 export const _addLikeToMsg = (req, res) => {
-  addLikeToMsg(req.body.id, req.socket.remoteAddress)
+  addLikeToMsg(req.body.id)
   .catch(e => {
     console.log(e);
   })
 }
+
+// export const _addLikeToMsg = (req, res) => {
+//   addLikeToMsg(req.body.id, req.socket.remoteAddress)
+//   .catch(e => {
+//     console.log(e);
+//   })
+// }
 
 export const _getLikes = (req, res) => {
   getLikes(req.params.id)

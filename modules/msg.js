@@ -13,12 +13,6 @@ export const addMsg = (title, name, msgbody, ip) => {
 
 export const allMsg = () => {
   return db('msg')
-  .select(
-    'msg.*',
-  //   db('msg_likes')
-  // .count('*')
-  // .where({msg_id:'msg.msg_id'})
-)
   .orderBy('msg_id')
   .returning('*');
 }
@@ -29,22 +23,22 @@ export const getLikesForMessage = (id) => {
   .where({msg_id:id})
 }
 
-// export const addLikeToMsg = (id) => {
-//   return db('msg')
-//   .increment('msg_likes', 1)
-//   .where('msg_id', '=', id)
-// };
-
-export const addLikeToMsg = (msg_id, like_ip_address) => {
-  return db('msg_likes')
-  .insert({
-    msg_id,
-    like_ip_address
-  })
-  .catch(e => {
-    console.log(e);
-  })
+export const addLikeToMsg = (id) => {
+  return db('msg')
+  .increment('msg_likes', 1)
+  .where('msg_id', '=', id)
 };
+
+// export const addLikeToMsg = (msg_id, like_ip_address) => {
+//   return db('msg_likes')
+//   .insert({
+//     msg_id,
+//     like_ip_address
+//   })
+//   .catch(e => {
+//     console.log(e);
+//   })
+// };
 
 export const getLikes = (msg_id) => {
   return db('msg_likes')

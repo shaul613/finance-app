@@ -27,7 +27,7 @@ create table msg_likes(
 	like_ip_address varchar(1024) not null
 )
 
-select m.*, (select count(*) from msg_likes l where l.msg_id = m.msg_id)
+select *, (select count(*) from msg_likes l where l.msg_id = m.msg_id)
 from msg m
-group by m.msg_id
-order by m.msg_id
+group by msg_id
+order by msg_id
