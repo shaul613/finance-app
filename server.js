@@ -18,6 +18,7 @@ app.listen(process.env.PORT || 8080, () => {
 const __dirname = path.resolve();
 
 app.use('/', express.static(path.join(__dirname, 'client/build')));
+app.use('/.well-known/brave-rewards-verification.txt', express.static(__dirname + '/.well-known/brave-rewards-verification.txt'));
 app.use('/backend/products', router);
 app.use('/backend/msg', msgRouter);
 app.get('*', (req, res) => {
