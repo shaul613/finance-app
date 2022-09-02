@@ -19,7 +19,7 @@ const __dirname = path.resolve();
 
 app.use('/', express.static(path.join(__dirname, 'client/build')));
 //the following code is the path for Brave Browser Creator varification.
-app.use('/.well-known/brave-rewards-verification.txt', express.static(__dirname + '/.well-known/brave-rewards-verification.txt'));
+// app.use('/.well-known/brave-rewards-verification.txt', express.static(__dirname + '/.well-known/brave-rewards-verification.txt'));
 app.use('/backend/products', router);
 app.use('/backend/msg', msgRouter);
 app.get('*', (req, res) => {
