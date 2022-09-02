@@ -61,7 +61,7 @@ const Home = (props) => {
           randomCards.map(item => {
             return(
               <div key={item.cc_id} className="home_page_card home_page_item">
-                <h3><a href={item.product_ref_link}>{item.product_name}</a></h3>
+                <h3><a href={item.product_ref_link} target='_blank'>{item.product_name}</a></h3>
                 <img src={item.product_img} className="product_img cc_img"/>
                 <p className="product_sub cc_sub"><b>Sign Up Bonus: {item.cc_sub}</b></p>
                 <p><a href={item.product_ref_link}>Get Card!</a></p>
@@ -78,7 +78,7 @@ const Home = (props) => {
           randomCrypto.map(item => {
             return(
               <div key={item.crypto_exchange_id} className="home_page_crypto home_page_item">
-                {/*<h3><a href={item.product_ref_link}>{item.product_name}</a></h3>*/}
+                {<h3><a href={item.product_ref_link} target='_blank'>{item.product_name}</a></h3>}
                 <img src={item.product_img} className="product_img crypto_img"/>
                 <p className="product_sub crypto_sub"><b>Sign Up Bonus: {item.crypto_exchange_sub}</b></p>
                 <p><a href={item.product_ref_link}>Sign Up!</a></p>
