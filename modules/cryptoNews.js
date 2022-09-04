@@ -5,17 +5,17 @@ import {
 } from '../api_fetch/cryptoNews.js';
 
 export const enterCryptoNews = () => {
-  nc.schedule('51 * * * *', () => {
-    console.log('nc started on 51');
+  nc.schedule('53 * * * *', () => {
+    console.log('nc started on 53');
     fetchCryptoNews()
     .then(data => {
       db('crypto_news')
       .del()
       .where('news_id', '!=', 'null');
-      // return data;
+      return data;
     })
     .then(data => {
-      console.log('data');
+      // console.log('data');
       // console.log(data);
       data.map(item => {
         // console.log(item);
