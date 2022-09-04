@@ -14,9 +14,11 @@ const CryptoNewsItem = (props) => {
   return(
     <div className='news_item'>
       <a href={props.url} target='_blank' className='news_link'><button className='news_button'>
-        <h2 className='news_title'>{props.title}</h2>
+     </button></a>
+      <div className='news_title'>
+        <h3>{props.title}</h3>
         <small>{props.source}</small>
-      </button></a>
+      </div>
     </div>
   )
 }
