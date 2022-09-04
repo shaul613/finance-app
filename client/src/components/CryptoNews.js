@@ -20,6 +20,7 @@ const CryptoNews = (props) => {
         news.map(item => {
           return(
             <div key={item.news_id}>
+              <CryptoNewsItem title={item.title} url={item.url}/>
             </div>
           )
         })

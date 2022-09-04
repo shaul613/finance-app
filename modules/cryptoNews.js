@@ -34,7 +34,7 @@ export const enterCryptoNews = () => {
 }
 
 export const getCryptoNews = () => {
-  db('crypto_news')
+  return db('crypto_news')
   .select('*')
-  .returning('*')
+  .orderBy('news_id');
 }
