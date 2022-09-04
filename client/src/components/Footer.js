@@ -10,7 +10,7 @@ const Footer = (props) => {
         <li><a href='/crypto'>Crypto</a></li>
         <li><a href='/feedback'>Comments</a></li>
         <li><a href='/about'>About Us</a></li>
-        <li><a href='/'>Home Page</a></li>
+        <li><a href='/home'>Home Page</a></li>
       </ul>
       <ul className='footer_list'>
         <li><a href='/contact'>Contact</a></li>

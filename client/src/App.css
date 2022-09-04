@@ -280,3 +280,17 @@ body{
   background-color: grey;
   padding:5vh 5vw 5vh 5vw;
 }
+
+.news_item{
+  width: 25vw;
+  min-height: 40vh;
+  border: 1px solid black;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+/* .news_item *{
+  height: 100%;
+} */

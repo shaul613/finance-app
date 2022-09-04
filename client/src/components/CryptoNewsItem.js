@@ -6,15 +6,15 @@ const CryptoNewsItem = (props) => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`${props.url}`)
-  }
+  // const handleClick = () => {
+  //   navigate(props.url)
+  // }
 
   return(
-    <div>
-      <button onClick={handleClick}>
+    <div className='news_item'>
+      <a href={props.url}><button>
         <h3>{props.title}</h3>
-      </button>
+      </button></a>
     </div>
   )
 }
