@@ -5,15 +5,20 @@ import {
 } from '../api_fetch/cryptoNews.js';
 
 export const enterCryptoNews = () => {
-  nc.schedule('0 * * * *', () => {
+  nc.schedule('51 * * * *', () => {
+    console.log('nc started on 51');
     fetchCryptoNews()
     .then(data => {
       db('crypto_news')
-      .del();
-      return data;
+      .del()
+      .where('news_id', '!=', 'null');
+      // return data;
     })
     .then(data => {
+      console.log('data');
+      // console.log(data);
       data.map(item => {
+        // console.log(item);
         db('crypto_news')
         .insert({
           source:item.source,
@@ -26,4 +31,10 @@ export const enterCryptoNews = () => {
       })
     })
   })
+}
+
+export const getCryptoNews = () => {
+  db('crypto_news')
+  .select('*')
+  .returning('*')
 }

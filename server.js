@@ -3,6 +3,7 @@ import cors from 'cors';
 import {db} from './connections/db.js';
 import router from './routes/financialProducts.js';
 import msgRouter from './routes/msg.js';
+import cryptoNewsRouter from './routes/cryptoNews.js';
 import path from 'path';
 import nc from 'node-cron';
 import {enterCryptoNews} from './modules/cryptoNews.js';
@@ -23,6 +24,7 @@ app.use('/', express.static(path.join(__dirname, 'client/build')));
 // app.use('/.well-known/brave-rewards-verification.txt', express.static(__dirname + '/.well-known/brave-rewards-verification.txt'));
 app.use('/backend/products', router);
 app.use('/backend/msg', msgRouter);
+app.use('/backend/cryptonews', cryptoNewsRouter);
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname , './client/build','index.html'))
 })

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchCryptoNews = () => {
+export const fetchCryptoNews = async () => {
   const options = {
     method: 'GET',
     url: 'https://crypto-news-live3.p.rapidapi.com/news',
@@ -9,10 +9,11 @@ export const fetchCryptoNews = () => {
       'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'
     }
   };
-  axios.request(options)
-  .then(function (response) {
-  	console.log(response.data);
-    return response.data;
-  })
-	.catch(err => console.error(err));
+  let response = await axios.request(options)
+  return response.data
+  // .then(function (response) {
+  // 	console.log(response.data);
+  //   return response.data;
+  // })
+	// .catch(err => console.error(err));
 }
