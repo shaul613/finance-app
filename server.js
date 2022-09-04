@@ -5,7 +5,7 @@ import router from './routes/financialProducts.js';
 import msgRouter from './routes/msg.js';
 import path from 'path';
 import nc from 'node-cron';
-// import cryptoNewsInsert from './db_insert/cryptoNews.js';
+import {enterCryptoNews} from './modules/cryptoNews.js';
 
 const app = express();
 app.use(cors());
@@ -27,7 +27,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname , './client/build','index.html'))
 })
 
-// cryptoNewsInsert();
-nc.schedule('* * * * *', () => {
-  console.log('running every minutes');
-})
+enterCryptoNews();

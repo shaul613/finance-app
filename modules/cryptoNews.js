@@ -5,11 +5,25 @@ import {
 } from '../api_fetch/cryptoNews.js';
 
 export const enterCryptoNews = () => {
-  fetchCryptoNews()
-  .then(data => {
-    db('crypto_news')
-    .insert({
-
+  nc.schedule('0 * * * *', () => {
+    fetchCryptoNews()
+    .then(data => {
+      db('crypto_news')
+      .del();
+      return data;
+    })
+    .then(data => {
+      data.map(item => {
+        db('crypto_news')
+        .insert({
+          source:item.source,
+          title:item.title,
+          url:item.url
+        })
+        .catch(e => {
+          console.log(e);
+        })
+      })
     })
   })
 }
