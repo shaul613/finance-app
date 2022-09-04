@@ -1,4 +1,5 @@
 import {db} from '../connections/db.js';
+import nc from 'node-cron';
 import {
   fetchCryptoNews,
 } from '../api_fetch/cryptoNews.js';
