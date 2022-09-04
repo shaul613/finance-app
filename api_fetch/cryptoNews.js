@@ -1,4 +1,3 @@
-import {db} from '../connections/db.js';
 import axios from "axios";
 
 export const fetchCryptoNews = () => {
