@@ -55,23 +55,6 @@ const Home = (props) => {
   return(
     <div>
       <TopBar />
-      <div className='random_cards_list'>
-        <div className='three_random_cards'>
-        {
-          randomCards.map(item => {
-            return(
-              <div key={item.cc_id} className="home_page_card home_page_item">
-                <h3><a href={item.product_ref_link} target='_blank'>{item.product_name}</a></h3>
-                <img src={item.product_img} className="product_img cc_img"/>
-                <p className="product_sub cc_sub"><b>Sign Up Bonus: {item.cc_sub}</b></p>
-                <p><a href={item.product_ref_link}>Get Card!</a></p>
-              </div>
-            )
-          })
-        }
-        </div>
-        <button className="home_page_button"><a href='/creditcards'>See All Cards</a></button>
-      </div>
       <div className='random_crypto_list'>
         <div className='three_random_cards'>
         {
@@ -89,6 +72,24 @@ const Home = (props) => {
         </div>
         <button className="home_page_button"><a href='/crypto'>See All Crypto Exchanges</a></button>
       </div>
+      <div className='random_cards_list'>
+        <div className='three_random_cards'>
+        {
+          randomCards.map(item => {
+            return(
+              <div key={item.cc_id} className="home_page_card home_page_item">
+                <h3><a href={item.product_ref_link} target='_blank'>{item.product_name}</a></h3>
+                <img src={item.product_img} className="product_img cc_img"/>
+                <p className="product_sub cc_sub"><b>Sign Up Bonus: {item.cc_sub}</b></p>
+                <p><a href={item.product_ref_link}>Get Card!</a></p>
+              </div>
+            )
+          })
+        }
+        </div>
+        <button className="home_page_button"><a href='/creditcards'>See All Cards</a></button>
+      </div>
+
 
     </div>
   )
