@@ -1,6 +1,18 @@
 import {
-  insertCryptoNews,
+  fetchCryptoNews,
 } from '../api_fetch/cryptoNews.js';
+
+// response.data.map(item => {
+//   db('crypto_news')
+//   .insert({
+//     source:item.source,
+//     title:item.title,
+//     url:item.url
+//   })
+//   .catch(e => {
+//     console.log(e);
+//   })
+// })
 
 const cryptoNewsInsert = () => {
   // setInterval(() => {

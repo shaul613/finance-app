@@ -1,7 +1,7 @@
 import {db} from '../connections/db.js';
 import axios from "axios";
 
-export const insertCryptoNews = () => {
+export const fetchCryptoNews = () => {
   const options = {
     method: 'GET',
     url: 'https://crypto-news-live3.p.rapidapi.com/news',
@@ -10,22 +10,10 @@ export const insertCryptoNews = () => {
       'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'
     }
   };
-  axios.request(options).then(function (response) {
+  axios.request(options)
+  .then(function (response) {
   	console.log(response.data);
-    response.data.map(item => {
-      db('crypto_news')
-      .insert({
-        source:item.source,
-        title:item.title,
-        url:item.url
-      })
-      .catch(e => {
-        console.log(e);
-      })
-    })
+    return response.data;
   })
-  // .then(data => {
-  //
-  // })
 	.catch(err => console.error(err));
 }
