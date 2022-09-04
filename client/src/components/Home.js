@@ -64,7 +64,8 @@ const Home = (props) => {
                 {<h3><a href={item.product_ref_link} target='_blank'>{item.product_name}</a></h3>}
                 <img src={item.product_img} className="product_img crypto_img"/>
                 <p className="product_sub crypto_sub"><b>Sign Up Bonus: {item.crypto_exchange_sub}</b></p>
-                <p><a href={item.product_ref_link}>Sign Up!</a></p>
+                <p className="product_ref cc_ref"><button className='signup_btn'><a href={item.product_ref_link} target='_blank'>Sign Up</a></button></p>
+                {/*<p><a href={item.product_ref_link}>Sign Up!</a></p>*/}
               </div>
             )
           })
@@ -81,7 +82,8 @@ const Home = (props) => {
                 <h3><a href={item.product_ref_link} target='_blank'>{item.product_name}</a></h3>
                 <img src={item.product_img} className="product_img cc_img"/>
                 <p className="product_sub cc_sub"><b>Sign Up Bonus: {item.cc_sub}</b></p>
-                <p><a href={item.product_ref_link}>Get Card!</a></p>
+                {/*<p><a href={item.product_ref_link}>Get Card!</a></p>*/}
+                <p className="product_ref cc_ref"><button className='signup_btn'><a href={item.product_ref_link} target='_blank'>Sign Up</a></button></p>
               </div>
             )
           })
