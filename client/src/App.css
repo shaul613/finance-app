@@ -319,6 +319,13 @@ body{
   height: 10vh;
   margin-left: 0vw;
   margin-right: 0vw;
+  background-color: #dabf99;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.nav_item:hover{
+  background-color: red;
 }
 
 #navbar_two{
