@@ -15,7 +15,7 @@ import {
 
 const Navbar = (props) => {
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
