@@ -22,6 +22,10 @@ const Navbar = (props) => {
     setValue(newValue);
   };
 
+  const handleClick = (str) => {
+    navigate(`/${str}`);
+  }
+
   return (
     <div>
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
@@ -37,8 +41,14 @@ const Navbar = (props) => {
           {/*<Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
         </Tabs>
         </div>
-
       </Box>
+      <div id='navbar_two'>
+        <button className='nav_item' onClick={()=>{handleClick('')}}>Home</button>
+        <button className='nav_item' onClick={()=>{handleClick('creditcards')}}>Credit Cards</button>
+        <button className='nav_item' onClick={()=>{handleClick('crypto')}}>Crypto</button>
+        <button className='nav_item' onClick={()=>{handleClick('cryptonews')}}>Crypto News</button>
+        <button className='nav_item' onClick={()=>{handleClick('about')}}>About</button>
+      </div>
     </div>
   )
 }
