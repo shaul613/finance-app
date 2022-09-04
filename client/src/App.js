@@ -14,6 +14,7 @@ import TopBar from './components/TopBar';
 import Comments from './components/Comments';
 import About from './components/About';
 import Contact from './components/Contact';
+import CryptoNews from './components/CryptoNews';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/about" element={<About/>}/>
             <Route path="/feedback" element={<Comments/>}/>
             <Route path="/contact" element={<Contact/>}/>
+            <Route path="/cryptonews" element={<CryptoNews/>}/>
           </Routes>
         </div>
         <Footer />

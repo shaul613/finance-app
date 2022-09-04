@@ -5,6 +5,6 @@ import {
 
 const cryptoNewsRouter = express.Router();
 
-cryptoNewsRouter.get('/allCryptoNews', _getCryptoNews);
+cryptoNewsRouter.get('/allcryptonews', _getCryptoNews);
 
 export default cryptoNewsRouter;
