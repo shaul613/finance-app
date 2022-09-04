@@ -7,7 +7,7 @@ const CryptoNewsItem = (props) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(props.url)
+    navigate(`${props.url}`)
   }
 
   return(
