@@ -41,8 +41,8 @@ const LoginForm = (props) => {
       <Box component="form" sx={{m:1}} autoComplete="off">
         <TextFiled
           sx={{m:1}}
-          id="email"
-          label="Enter Email"
+          id="username"
+          label="Username"
           variant="outlined"
           onChange={(e)=>setUsername(e.target.value)}
         />
@@ -55,6 +55,7 @@ const LoginForm = (props) => {
         />
       </Box>
       <Button variant="contained" onClick={handleAction}>{props.title}</Button>
+      <p>Don't have an account? <a href='/register'>register here!</a></p>
       <div>
         <p>{msg}</p>
       </div>

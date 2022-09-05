@@ -5,18 +5,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import {db} from '../connections/db.js';
 
-// export const getUsers = async(req, res) => {
-//   try{
-//     const users = await Users.findAll({
-//       attributes:['id', 'email']
-//     });
-//     res.json(users);
-//   } catch(e){
-//     console.log(e);
-//   }
-// }
-//
-
 export const _addUser = async(req, res) => {
   const password = req.body.password;
   const salt = await bcrypt.genSalt();
@@ -25,7 +13,7 @@ export const _addUser = async(req, res) => {
     req.body.username,
     req.body.fname,
     req.body.lname,
-    req.body.password,
+    hashPassword,
     req.body.phone,
     req.body.email
   )
@@ -43,9 +31,9 @@ export const login = async(req, res) => {
       username:req.body.username
     })
     .returning('*')
-    // .then(data => {
-    //   console.log(data);
-    // })
+    if(user.length == 0){
+      return res.status(404).json({msg:'Username not found'})
+    }
     const match = await bcrypt.compare(req.body.password, user[0].password);
     if(!match){
       console.log(user[0].password);
