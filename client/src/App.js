@@ -19,7 +19,9 @@ import Comments from './components/Comments';
 import About from './components/About';
 import Contact from './components/Contact';
 import CryptoNews from './components/CryptoNews';
-import LoginRegisterForm from './components/LoginRegisterForm';
+// import LoginRegisterForm from './components/LoginRegisterForm';
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 import {Auth} from './auth/Auth.js';
 
 export const AppContext = createContext(null);
@@ -43,8 +45,8 @@ function App() {
             <Route path="/feedback" element={<Comments/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/cryptonews" element={<CryptoNews/>}/>
-            <Route path="/login" element={<LoginRegisterForm title="Login" />}/>
-            <Route path="/register" element={<LoginRegisterForm title="Register" />}/>
+            <Route path="/login" element={<LoginForm title="Login" />}/>
+            <Route path="/register" element={<RegisterForm title="Register" />}/>
           </Routes>
         </div>
         <Footer />

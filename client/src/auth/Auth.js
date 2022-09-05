@@ -11,7 +11,7 @@ export const Auth = (props) => {
   useEffect(() => {
     const verify = async() => {
       try {
-        let response = await axios.get('/token',{
+        let response = await axios.get('/backend/auth/token',{
           withCredentials:true,
           header:{
             'Content-Type':'application'

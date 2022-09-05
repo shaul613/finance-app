@@ -6,9 +6,13 @@ import TextFiled from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {AppContext} from '../App';
 
-const LoginRegisterForm = (props) => {
-  const [email, setEmail] = useState('');
+const RegisterForm = (props) => {
+  const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState('');
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
   const [msg, setMsg] = useState('');
 
   const {setAccessToken} = useContext(AppContext);
@@ -19,7 +23,7 @@ const LoginRegisterForm = (props) => {
     if(props.title=='Register'){
       try{
         const response = await axios.post('/backend/auth/register',{
-          email, password
+          username, fname, lname, password, phone, email
         },{
           withCredentials:true,
           headers:{
@@ -40,7 +44,6 @@ const LoginRegisterForm = (props) => {
             'Content-Type':'application/json'
           }
         });
-        console.log('login => ', response.data);
         setAccessToken(response.data)
         navigate('/');
       } catch(e){
@@ -78,4 +81,4 @@ const LoginRegisterForm = (props) => {
   )
 }
 
-export default LoginRegisterForm;
+export default RegisterForm;
