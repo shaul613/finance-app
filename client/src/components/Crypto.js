@@ -29,7 +29,7 @@ const Crypto = (props) => {
         products.map(item => {
           return(
             <div key={item.product_id} className='card_item product_item'>
-            <h3 className="product_title cc_title"><a href='#'>{item.product_name}</a></h3>
+            <h3 className="product_title cc_title"><a href={item.product_ref_link} target='blank'>{item.product_name}</a></h3>
               <div className="financial_product cc_product">
                 <div className='product_title_img'>
                   <img className="product_img cc_img" src={item.product_img} alt="card-photo"/>
