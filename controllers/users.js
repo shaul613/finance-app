@@ -43,20 +43,22 @@ export const login = async(req, res) => {
       username:req.body.username
     })
     .returning('*')
-    .then(data => {
-      console.log(data);
-    })
+    // .then(data => {
+    //   console.log(data);
+    // })
     const match = await bcrypt.compare(req.body.password, user[0].password);
     if(!match){
+      console.log(user[0].password);
+      console.log(req.body.password);
       return res.status(400).json({msg:'Wrong password'});
     }
-    const userId = user[0].username;
+    const username = user[0].username;
     const email = user[0].email;
     const fname = user[0].fname;
     const lname = user[0].lname;
     const phone = user[0].phone;
 
-    const accessToken = jwt.sign({userId, email}, process.env.ACCESS_TOKEN_SECRET,{
+    const accessToken = jwt.sign({username, email, fname, lname, phone}, process.env.ACCESS_TOKEN_SECRET,{
       expiresIn:'30s'
     });
 
