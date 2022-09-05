@@ -64,7 +64,7 @@ export const logout = (req, res) => {
   const accessToken = req.cookie.accessToken;
   if(!accessToken){
     // res.redirect('/');
-    return sendStatus(204);
+    return res.sendStatus(204);
   }
   res.clearCookie('accessToken');
   // res.redirect('/');
