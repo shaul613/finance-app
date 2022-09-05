@@ -11,5 +11,8 @@ const authRouter = express.Router();
 authRouter.post('/register', _addUser);
 authRouter.post('/login', login);
 authRouter.delete('/logout', logout);
+authRouter.get('/token', verifyToken, (req, res) => {
+  res.sendStatus(200);
+})
 
 export default authRouter;
