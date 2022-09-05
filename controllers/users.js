@@ -34,33 +34,36 @@ export const _addUser = async(req, res) => {
   })
 }
 
-// export const login = async(req, res) => {
-//   try{
-//     const user = await Users.findAll({
-//       where:{
-//         email:req.body.email,
-//       }
-//     });
-//     const match = await bcrypt.compare(req.body.password, user[0].password);
-//     if(!match){
-//       return res.status(400).json({msg:'Wrong password'});
-//     }
-//     const userId = user[0].id;
-//     const email = user[0].email;
-//
-//     const accessToken = jwt.sign({userId, email}, process.env.ACCESS_TOKEN_SECRET,{
-//       expiresIn:'30s'
-//     });
-//
-//     res.cookie('accessToken', accessToken, {
-//       httpOnly:true,
-//       maxAge:30 * 1000
-//     });
-//     res.json(accessToken);
-//   } catch(e){
-//     res.status(404).json({msg:'email not found'})
-//   }
-// }
+export const login = async(req, res) => {
+  try{
+    const user = await db('users')
+    .select('*')
+    .where({
+      username:req.body.username
+    })
+    const match = await bcrypt.compare(req.body.password, user[0].password);
+    if(!match){
+      return res.status(400).json({msg:'Wrong password'});
+    }
+    const userId = user[0].username;
+    const email = user[0].email;
+    const fname = user[0].fname;
+    const lname = user[0].lname;
+    const phone = user[0].phone;
+
+    const accessToken = jwt.sign({userId, email}, process.env.ACCESS_TOKEN_SECRET,{
+      expiresIn:'30s'
+    });
+
+    res.cookie('accessToken', accessToken, {
+      httpOnly:true,
+      maxAge:30 * 1000
+    });
+    res.json(accessToken);
+  } catch(e){
+    res.status(404).json({msg:'Username not found'})
+  }
+}
 //
 // export const logout = (req, res) => {
 //   const accessToken = req.cookie.accessToken;
