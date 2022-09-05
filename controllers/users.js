@@ -24,7 +24,7 @@ export const _addUser = async(req, res) => {
   addUser(
     req.body.username,
     req.body.fname,
-    req.bdoy.lname,
+    req.body.lname,
     req.body.password,
     req.body.phone,
     req.body.email
