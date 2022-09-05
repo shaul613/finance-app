@@ -8,8 +8,8 @@ import {verifyToken} from '../middleware/verifyToken.js';
 
 const authRouter = express.Router();
 
-authRouter.get('/register', _addUser);
-authRouter.get('/login', login);
-authRouter.get('/logout', logout);
+authRouter.post('/register', _addUser);
+authRouter.post('/login', login);
+authRouter.delete('/logout', logout);
 
 export default authRouter;

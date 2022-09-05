@@ -31,6 +31,7 @@ app.use('/', express.static(path.join(__dirname, 'client/build')));
 app.use('/backend/products', router);
 app.use('/backend/msg', msgRouter);
 app.use('/backend/cryptonews', cryptoNewsRouter);
+app.use('/backend/auth', authRouter);
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname , './client/build','index.html'))
 })
