@@ -3,6 +3,7 @@ import {
 } from '../modules/users.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import {db} from '../connections/db.js';
 
 // export const getUsers = async(req, res) => {
 //   try{
@@ -64,12 +65,12 @@ export const login = async(req, res) => {
     res.status(404).json({msg:'Username not found'})
   }
 }
-//
-// export const logout = (req, res) => {
-//   const accessToken = req.cookie.accessToken;
-//   if(!accessToken){
-//     return res.sendStatus(204);
-//   }
-//   res.clearCookie('accessToken');
-//   return sendStatus(200);
-// }
+
+export const logout = (req, res) => {
+  const accessToken = req.cookie.accessToken;
+  if(!accessToken){
+    return res.sendStatus(204);
+  }
+  res.clearCookie('accessToken');
+  return sendStatus(200);
+}

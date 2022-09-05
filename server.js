@@ -7,6 +7,7 @@ import {db} from './connections/db.js';
 import router from './routes/financialProducts.js';
 import msgRouter from './routes/msg.js';
 import cryptoNewsRouter from './routes/cryptoNews.js';
+import authRouter from './routes/users.js';
 import {enterCryptoNews} from './modules/cryptoNews.js';
 
 const app = express();
