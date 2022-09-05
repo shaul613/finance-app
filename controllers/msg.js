@@ -30,7 +30,7 @@ export const _allMsg = (req, res) => {
 }
 
 export const _addLikeToMsg = (req, res) => {
-  // const ip = req.headers['X-Forwarded-For'] || req.socket.remoteAddress;
+  const ip = req.headers['X-Forwarded-For'] || req.socket.remoteAddress;
   // isNotLiked(req.body.id, ip)
   // .then(data => {
   //   if(data[0].count > 0){
