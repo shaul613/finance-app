@@ -7,13 +7,13 @@ import Button from '@mui/material/Button';
 import {AppContext} from '../App';
 
 const RegisterForm = (props) => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState();
   const [phone, setPhone] = useState();
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState('');
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [msg, setMsg] = useState('');
+  const [password, setPassword] = useState();
+  const [fname, setFname] = useState();
+  const [lname, setLname] = useState();
+  const [msg, setMsg] = useState();
 
   const {setAccessToken} = useContext(AppContext);
 
@@ -31,20 +31,28 @@ const RegisterForm = (props) => {
       });
     } catch(e){
       console.log(e);
+      setMsg(e.response.data.msg)
     }
   }
+
+  // const handleChange = (e) => {
+  //   if(e.target.value === ''){
+  //     e.target.setAttribute('error', '')
+  //   }
+  // }
 
   return(
     <div>
       <div>
         <h3>{props.title} Form</h3>
       </div>
-      <Box component="form" sx={{m:1}} noValidate autoComplete="off">
+      <Box component="form" sx={{m:1}} validate='true' autoComplete="off">
         <TextFiled
           sx={{m:1}}
           id="fname"
           label="First Name"
           variant="outlined"
+          required
           onChange={(e)=>setFname(e.target.value)}
         />
         <TextFiled
@@ -52,6 +60,7 @@ const RegisterForm = (props) => {
           id="lname"
           label="Last Name"
           variant="outlined"
+          required
           onChange={(e)=>setLname(e.target.value)}
         />
         <TextFiled
@@ -59,6 +68,7 @@ const RegisterForm = (props) => {
           id="email"
           label="Enter Email"
           variant="outlined"
+          helperText='Optional'
           onChange={(e)=>setEmail(e.target.value)}
         />
         <TextFiled
@@ -66,6 +76,7 @@ const RegisterForm = (props) => {
           id="phone"
           label="Enter Phone Number"
           variant="outlined"
+          helperText='Optional'
           onChange={(e)=>setPhone(e.target.value)}
         />
         <TextFiled
@@ -73,6 +84,7 @@ const RegisterForm = (props) => {
           id="username"
           label="Choose A Username"
           variant="outlined"
+          required
           onChange={(e)=>setUsername(e.target.value)}
         />
         <TextFiled
@@ -81,6 +93,7 @@ const RegisterForm = (props) => {
           label="Choose A Password"
           variant="outlined"
           type="password"
+          required
           onChange={(e)=>setPassword(e.target.value)}
         />
       </Box>

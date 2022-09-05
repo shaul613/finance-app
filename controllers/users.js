@@ -42,6 +42,10 @@ export const login = async(req, res) => {
     .where({
       username:req.body.username
     })
+    .returning('*')
+    .then(data => {
+      console.log(data);
+    })
     const match = await bcrypt.compare(req.body.password, user[0].password);
     if(!match){
       return res.status(400).json({msg:'Wrong password'});

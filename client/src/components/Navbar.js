@@ -39,6 +39,8 @@ const Navbar = (props) => {
           {/*<Tab component={Link} to='/feedback' label="Feedback And Comments" />*/}
           <Tab component={Link} to='/about' label="About" />
           {/*<Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
+          <Tab component={Link} to='/login' label="Login" />
+          <Tab component={Link} to='/register' label="Register" />
         </Tabs>
         </div>
       </Box>
