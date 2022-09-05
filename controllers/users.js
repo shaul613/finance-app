@@ -50,6 +50,8 @@ export const login = async(req, res) => {
       expiresIn:'30s'
     });
 
+    console.log(accessToken);
+
     res.cookie('accessToken', accessToken, {
       httpOnly:true,
       maxAge:30 * 1000
