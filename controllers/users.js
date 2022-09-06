@@ -65,9 +65,11 @@ export const login = async(req, res) => {
 export const logout = (req, res) => {
   const accessToken = req.cookie.accessToken;
   if(!accessToken){
+    console.log('att logout');
     // res.redirect('/');
     return res.sendStatus(204);
   }
+  console.log('logout');
   res.clearCookie('accessToken');
   // res.redirect('/');
   return sendStatus(200);
