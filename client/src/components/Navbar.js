@@ -15,6 +15,7 @@ import {
 
 const Navbar = (props) => {
 
+  const [accessToken, setAccessToken] = useState();
   const [value, setValue] = useState(false);
   const navigate = useNavigate();
 
@@ -27,7 +28,15 @@ const Navbar = (props) => {
   };
 
   const func = () => {
-    fetch('/backend/auth/logout');
+    fetch('/backend/auth/logout',{
+      withCredentials:true,
+      credentials:'include'
+    })
+    .then(res => {
+      if(res.status === 200){
+        console.log('hello world');
+      }
+    })
   }
 
   return (

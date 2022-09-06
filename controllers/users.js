@@ -70,5 +70,7 @@ export const logout = (req, res) => {
   }
   console.log('logout');
   res.clearCookie('accessToken');
+  // req.cookies.accessToken = null;
+  console.log('req.cookies.accessToken -> ', req.cookies.accessToken);
   return res.status(200);
 }
