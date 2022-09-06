@@ -14,7 +14,7 @@ export const verifyToken = (req, res, next) => {
       const user = await db('users')
       .select('*')
       .where({
-        username:decode.username
+        username:decoded.username
       })
       await next();
     } catch(e){
