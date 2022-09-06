@@ -5,6 +5,7 @@ import {
 import {
   useState,
   useEffect,
+  useContext,
 } from 'react';
 import {
   Button,
@@ -13,12 +14,33 @@ import {
   Box,
 } from '@mui/material';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import {AppContext} from '../App';
 
 const Navbar = (props) => {
 
-  const [accessToken, setAccessToken] = useState();
+  const {accessToken} = useContext(AppContext);
   const [value, setValue] = useState(false);
+  const [token, setToken] = useState({});
+  const [loginStatus, setLoginStatus] = useState();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    try{
+      const decode = jwt_decode(accessToken);
+      console.log(decode);
+      setToken(decode);
+      // const expire = decode.exp;
+      // if(expire * 1000 < new Date().getTime()){
+      //   setLoginStatus(false);
+      // }
+      setLoginStatus(true);
+    } catch(e){
+      setLoginStatus(false);
+    }
+
+  },[])
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -72,7 +94,7 @@ const Navbar = (props) => {
           <Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
           <Tab component={Link} to='/login' label="Login" />
           <Tab component={Link} to='/register' label="Register" />
-          <Tab component={Link} to='/login' onClick={logout} label="Logout" />
+          <Tab component={Link} to='/login' onClick={logout} label={accessToken ? 'Log Out' : 'Log In'} />
         </Tabs>
         </div>
       </Box>
