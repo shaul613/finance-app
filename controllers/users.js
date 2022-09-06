@@ -50,8 +50,6 @@ export const login = async(req, res) => {
       expiresIn:'180s'
     });
 
-    console.log(accessToken);
-
     res.cookie('accessToken', accessToken, {
       httpOnly:true,
       maxAge:180 * 1000
@@ -67,10 +65,19 @@ export const logout = (req, res) => {
   console.log('access token 1 -> ', accessToken);
   if(!accessToken){
     console.log('att logout');
-    return res.status(204);
+    return res.sendStatus(204);
   }
   console.log('logout');
   res.clearCookie('accessToken');
   console.log('access token 2 -> ', accessToken);
-  return res.status(200);
+  return res.sendStatus(200);
 }
+
+// export const logout = (req, res) => {
+//   const accessToken = req.cookies.accessToken;
+//   console.log('accessToken1=>',req.cookies.accessToken);
+//   if(!accessToken) return res.sendStatus(204);
+//   res.clearCookie('accessToken');
+//   console.log('accessToken2=>',req.cookies.accessToken);
+//   return res.sendStatus(200);
+// }

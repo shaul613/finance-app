@@ -42,7 +42,7 @@ const Navbar = (props) => {
 
   const logout = async () => {
     try {
-      const response = await axios.get('/logout',{},{
+      const response = await axios.delete('/backend/auth/logout',{},{
         withCredentials:true,
         headers:{
           'Content-Type':'application/json'
