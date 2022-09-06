@@ -64,13 +64,13 @@ export const login = async(req, res) => {
 
 export const logout = (req, res) => {
   const accessToken = req.cookies.accessToken;
+  console.log('access token 1 -> ', accessToken);
   if(!accessToken){
     console.log('att logout');
     return res.status(204);
   }
   console.log('logout');
   res.clearCookie('accessToken');
-  // req.cookies.accessToken = null;
-  console.log('req.cookies.accessToken -> ', req.cookies.accessToken);
+  console.log('access token 2 -> ', accessToken);
   return res.status(200);
 }

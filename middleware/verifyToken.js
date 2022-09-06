@@ -5,7 +5,7 @@ export const verifyToken = (req, res, next) => {
   const accessToken = req.cookies.accessToken
               || req.headers['x-acces-token']
               || req.headers['autherization']
-  console.log('accessToken => ', accessToken);
+  console.log('access token 3 -> ', accessToken);
 
   if(accessToken == null) return res.sendStatus(401);
   jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {

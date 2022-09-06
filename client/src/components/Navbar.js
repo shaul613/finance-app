@@ -12,6 +12,7 @@ import {
   Tab,
   Box,
 } from '@mui/material';
+import axios from 'axios';
 
 const Navbar = (props) => {
 
@@ -27,16 +28,33 @@ const Navbar = (props) => {
     navigate(`/${str}`);
   };
 
-  const func = () => {
-    fetch('/backend/auth/logout',{
-      withCredentials:true,
-      credentials:'include'
-    })
-    .then(res => {
-      if(res.status === 200){
-        console.log('hello world');
+  // const func = () => {
+  //   fetch('/backend/auth/logout',{
+  //     withCredentials:true,
+  //     credentials:'include'
+  //   })
+  //   .then(res => {
+  //     if(res.status === 200){
+  //       console.log('hello world');
+  //     }
+  //   })
+  // }
+
+  const logout = async () => {
+    try {
+      const response = await axios.get('/logout',{},{
+        withCredentials:true,
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+      console.log('register=>', response);
+      if(response.status == 200 || response.status == 204){
+        navigate('/login')
       }
-    })
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
@@ -54,7 +72,7 @@ const Navbar = (props) => {
           <Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
           <Tab component={Link} to='/login' label="Login" />
           <Tab component={Link} to='/register' label="Register" />
-          <Tab component={Link} to='/login' onClick={func} label="Logout" />
+          <Tab component={Link} to='/login' onClick={logout} label="Logout" />
         </Tabs>
         </div>
       </Box>
