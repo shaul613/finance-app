@@ -9,7 +9,7 @@ const About = (props) => {
           This site uses Node JS for its backend, React for its frontend, and Postgres for its DBMS.
           <br />
           I started off by creating a Node server with Express, followed by creating a database using
-          Postgress with 1 test table (called <i>products_test</i>) and some sample data. I used my <a href='#'>Amex
+          Postgress with 1 test table (called <i>products_test</i>) and some sample data. I used my <a href='5FBE3B476B788CE76FC956683E764A9C378A3C7EFCFF16653AD8900CBF5BDBCD42F5FB1476008E145B9733B6FC31352F73F501BE36D972816809E8F764ADC4B3B857FF3C2C0414CEA3BFD61AD1FAEB9ABEA42553B29591751B20BD4F76026AF8B9BE747CD6D620867FF461D2A3760C488CFB648C3991689B858EDA4E2C46077B0B9D08310E2213A3AEA044CAC960C136051F311350B667BFABC863F61C277ACD'>Amex
           Everyday Card</a> as my test product.
           <br />
           Once my server was running on my localhost, I went ahead and created a test module for retrieving all
