@@ -47,14 +47,14 @@ export const login = async(req, res) => {
     const phone = user[0].phone;
 
     const accessToken = jwt.sign({username, email, fname, lname, phone}, process.env.ACCESS_TOKEN_SECRET,{
-      expiresIn:'30s'
+      expiresIn:'180s'
     });
 
     console.log(accessToken);
 
     res.cookie('accessToken', accessToken, {
       httpOnly:true,
-      maxAge:30 * 1000
+      maxAge:180 * 1000
     });
     res.json(accessToken);
   } catch(e){
