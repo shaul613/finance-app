@@ -18,6 +18,7 @@ export const verifyToken = (req, res, next) => {
       })
       await next();
     } catch(e){
+      console.log('403');
       return res.status(403);
     }
   })
