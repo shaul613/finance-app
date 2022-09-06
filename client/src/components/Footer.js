@@ -1,4 +1,7 @@
-
+import {
+  Link,
+  NavLink,
+} from 'react-router-dom';
 
 const Footer = (props) => {
   return(
@@ -6,16 +9,16 @@ const Footer = (props) => {
 
       <div id='footer_list'>
       <ul className='footer_list'>
-        <li><a href='/creditcards'>Credit Cards</a></li>
-        <li><a href='/crypto'>Crypto</a></li>
-        <li><a href='/feedback'>Comments</a></li>
-        <li><a href='/about'>About Us</a></li>
-        <li><a href='/home'>Home Page</a></li>
+        <li><Link to='/creditcards'>Credit Cards</Link></li>
+        <li><Link to='/crypto'>Crypto</Link></li>
+        <li><Link to='/feedback'>Comments</Link></li>
+        <li><Link to='/about'>About Us</Link></li>
+        <li><Link to='/home'>Home Page</Link></li>
       </ul>
       <ul className='footer_list'>
-        <li><a href='/contact'>Contact</a></li>
+        <li><Link to='/contact'>Contact</Link></li>
         <li><a href='https://portfolio-project-sl.herokuapp.com/' target='_blank'>My Portfolio</a></li>
-        <li><a href='/cryptonews'>Crypto News</a></li>
+        <li><Link to='/cryptonews'>Crypto News</Link></li>
       </ul>
       </div>
       <small>Created with love in Tel Aviv, Israel</small>
