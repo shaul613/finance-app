@@ -63,15 +63,12 @@ export const login = async(req, res) => {
 }
 
 export const logout = (req, res) => {
-  // console.log('hello');
-  const accessToken = req.cookie.accessToken;
+  const accessToken = req.cookies.accessToken;
   if(!accessToken){
     console.log('att logout');
-    // res.redirect('/');
-    return res.sendStatus(204);
+    return res.status(204);
   }
   console.log('logout');
   res.clearCookie('accessToken');
-  // res.redirect('/');
-  return sendStatus(200);
+  return res.status(200);
 }

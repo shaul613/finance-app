@@ -24,6 +24,10 @@ const Navbar = (props) => {
 
   const handleClick = (str) => {
     navigate(`/${str}`);
+  };
+
+  const func = () => {
+    fetch('/backend/auth/logout');
   }
 
   return (
@@ -41,7 +45,7 @@ const Navbar = (props) => {
           {/*<Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
           <Tab component={Link} to='/login' label="Login" />
           <Tab component={Link} to='/register' label="Register" />
-          {/*<Tab component={Link} to='/backend/auth/logout' label="Logout" />*/}
+          <Tab component={Link} to='/login' onClick={func} label="Logout" />
         </Tabs>
         </div>
       </Box>
