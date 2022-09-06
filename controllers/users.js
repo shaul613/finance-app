@@ -63,6 +63,7 @@ export const login = async(req, res) => {
 }
 
 export const logout = (req, res) => {
+  // console.log('hello');
   const accessToken = req.cookie.accessToken;
   if(!accessToken){
     console.log('att logout');
