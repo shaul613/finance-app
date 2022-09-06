@@ -11,7 +11,7 @@ export const verifyToken = (req, res, next) => {
   jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {
     if(err) return res.sendStatus(403);
     try{
-      await db('users')
+      const user = await db('users')
       .select('*')
       .where({
         username:decode.username
