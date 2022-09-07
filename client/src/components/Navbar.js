@@ -23,24 +23,16 @@ const Navbar = (props) => {
   const {accessToken} = useContext(AppContext);
   const [value, setValue] = useState(false);
   const [token, setToken] = useState({});
-  const [loginStatus, setLoginStatus] = useState();
+  const [loginStatus, setLoginStatus] = useState(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    try{
-      const decode = jwt_decode(accessToken);
-      console.log(decode);
-      setToken(decode);
-      // const expire = decode.exp;
-      // if(expire * 1000 < new Date().getTime()){
-      //   setLoginStatus(false);
-      // }
-      setLoginStatus(true);
-    } catch(e){
-      setLoginStatus(false);
+    if(accessToken){
+      setLoginStatus('Log Out')
+    } else{
+      setLoginStatus('Log In')
     }
-
   },[])
 
   const handleChange = (event, newValue) => {
@@ -73,7 +65,8 @@ const Navbar = (props) => {
       });
       Cookies.remove('accessToken1');
       if(response.status == 200 || response.status == 204){
-        navigate('/login')
+        navigate('/login');
+        setLoginStatus('Log In')
       }
     } catch (e) {
       console.log(e);
@@ -95,7 +88,7 @@ const Navbar = (props) => {
           <Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
           {/*Tab component={Link} to='/login' label="Login" />*/}
           {/*<Tab component={Link} to='/register' label="Register" />*/}
-          <Tab component={Link} to='/login' onClick={logout} label={accessToken ? 'Log Out' : 'Log In'} />
+          <Tab component={Link} to='/login' onClick={logout} label={loginStatus} />
         </Tabs>
         </div>
       </Box>

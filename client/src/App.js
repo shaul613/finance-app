@@ -28,7 +28,7 @@ import {Auth} from './auth/Auth.js';
 export const AppContext = createContext(null);
 
 function App() {
-  const [accessToken, setAccessToken] = useState();
+  const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
     console.log('bitcoin => ',Cookies.get('accessToken1'));
