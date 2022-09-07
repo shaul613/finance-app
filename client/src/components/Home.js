@@ -54,7 +54,7 @@ const Home = (props) => {
 
   return(
     <div>
-      <TopBar />
+      {/*<TopBar />*/}
       <div className='random_crypto_list'>
         <div className='three_random_cards'>
         {
