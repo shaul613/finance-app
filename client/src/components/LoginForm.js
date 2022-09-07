@@ -55,11 +55,12 @@ const LoginForm = (props) => {
           onChange={(e)=>setPassword(e.target.value)}
         />
       </Box>
-      <Button variant="contained" onClick={handleAction}>{props.title}</Button>
-      <p>Don't have an account? <Link to='/register'>register here!</Link></p>
-      <div>
+      <div className='auth_error'>
         <p>{msg}</p>
       </div>
+      <Button variant="contained" onClick={handleAction}>{props.title}</Button>
+      <p>Don't have an account? <Link to='/register'>register here!</Link></p>
+
     </div>
   )
 }

@@ -344,3 +344,7 @@ body{
   margin-top: 20vh;
   margin-bottom: 40vh;
 }
+
+.auth_error{
+  color:#d01d1d;
+}

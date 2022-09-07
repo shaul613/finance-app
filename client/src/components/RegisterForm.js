@@ -97,11 +97,12 @@ const RegisterForm = (props) => {
           onChange={(e)=>setPassword(e.target.value)}
         />
       </Box>
-      <Button variant="contained" onClick={handleAction}>{props.title}</Button>
-      <p>Already have an account? <Link to='/login'>log in</Link>.</p>
-      <div>
+      <div className='auth_error'>
         <p>{msg}</p>
       </div>
+      <Button variant="contained" onClick={handleAction}>{props.title}</Button>
+      <p>Already have an account? <Link to='/login'>log in</Link>.</p>
+
     </div>
   )
 }
