@@ -6,21 +6,26 @@ import jwt from 'jsonwebtoken';
 import {db} from '../connections/db.js';
 
 export const _addUser = async(req, res) => {
-  const password = req.body.password;
-  const salt = await bcrypt.genSalt();
-  const hashPassword = await bcrypt.hash(password, salt);
-  addUser(
-    req.body.username,
-    req.body.fname,
-    req.body.lname,
-    hashPassword,
-    req.body.phone,
-    req.body.email
-  )
-  .catch(e => {
+  try {
+    const password = req.body.password;
+    const salt = await bcrypt.genSalt();
+    const hashPassword = await bcrypt.hash(password, salt);
+    addUser(
+      req.body.username,
+      req.body.fname,
+      req.body.lname,
+      hashPassword,
+      req.body.phone,
+      req.body.email
+    )
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({msg:'Sorry, username already exists.'})
+    })
+  } catch (e) {
     console.log(e);
-    res.status(404).json({msg:'Sorry, username already exists.'})
-  })
+    res.status(404).json({msg:e})
+  }
 }
 
 export const login = async(req, res) => {

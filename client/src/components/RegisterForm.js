@@ -31,7 +31,7 @@ const RegisterForm = (props) => {
       });
     } catch(e){
       console.log(e);
-      setMsg(e.response.data.msg)
+      setMsg(e)
     }
   }
 
