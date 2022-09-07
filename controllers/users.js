@@ -59,7 +59,7 @@ export const login = async(req, res) => {
     const phone = user[0].phone;
 
     const accessToken = jwt.sign({username, email, fname, lname, phone}, process.env.ACCESS_TOKEN_SECRET,{
-      expiresIn:'180s'
+      expiresIn:'24h'
     });
 
     res.cookie('accessToken', accessToken, {
