@@ -98,7 +98,7 @@ const RegisterForm = (props) => {
         />
       </Box>
       <Button variant="contained" onClick={handleAction}>{props.title}</Button>
-      <p>Already have an account? <a href='/login'>log in</a>.</p>
+      <p>Already have an account? <Link to='/login'>log in</Link>.</p>
       <div>
         <p>{msg}</p>
       </div>

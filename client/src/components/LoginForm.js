@@ -55,7 +55,7 @@ const LoginForm = (props) => {
         />
       </Box>
       <Button variant="contained" onClick={handleAction}>{props.title}</Button>
-      <p>Don't have an account? <a href='/register'>register here!</a></p>
+      <p>Don't have an account? <Link to='/register'>register here!</Link></p>
       <div>
         <p>{msg}</p>
       </div>
