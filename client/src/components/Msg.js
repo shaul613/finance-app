@@ -42,22 +42,16 @@ const Msg = (props) => {
         },
         body:JSON.stringify({id:id})
       })
-      .then((res) => {
-        if(res.status !== 200){
-          setLoginMsg(
-            <div>
-              <p>Please <Link to='/login'>log in</Link> to like!</p>
-            </div>
-          );
-        } else{
-          console.log('hello');
-          setLikes(originalLikes+1);
-          setLiked(true);
-          setUnliked(false);
-          setLikeIcon(<ThumbUpAltIcon />);
-          setUnlikeIcon(<ThumbDownOffAltIcon />);
-        }
-      })
+      // setLoginMsg(
+      //   <div>
+      //     <p>Please <Link to='/login'>log in</Link> to like!</p>
+      //   </div>
+      // );
+      setLikes(originalLikes+1);
+      setLiked(true);
+      setUnliked(false);
+      setLikeIcon(<ThumbUpAltIcon />);
+      setUnlikeIcon(<ThumbDownOffAltIcon />);
 
     // } else{
     //   // fetch(`/backend/msg/like`,{

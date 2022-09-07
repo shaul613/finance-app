@@ -17,6 +17,7 @@ export const verifyToken = (req, res, next) => {
         username:decoded.username
       })
       await next();
+      return res.status(200);
     } catch(e){
       return res.status(403);
     }
