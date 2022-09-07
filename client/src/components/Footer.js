@@ -19,6 +19,11 @@ const Footer = (props) => {
         <li><Link to='/contact'>Contact</Link></li>
         <li><a href='https://portfolio-project-sl.herokuapp.com/' target='_blank'>My Portfolio</a></li>
         <li><Link to='/cryptonews'>Crypto News</Link></li>
+        <li><Link to='/login'>Log in</Link></li>
+        <li><Link to='/register'>Register</Link></li>
+      </ul>
+      <ul className='footer_list'>
+
       </ul>
       </div>
       <small>Created with love in Tel Aviv, Israel</small>
