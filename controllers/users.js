@@ -7,6 +7,13 @@ import {db} from '../connections/db.js';
 
 export const _addUser = async(req, res) => {
   try {
+    const user = await db('users')
+    .select('*')
+    .where({username:req.body.username})
+    .returning('*');
+    if(user.length > 0){
+      return res.status(403).json({msg:'Username already exists'});
+    }
     const password = req.body.password;
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
@@ -20,11 +27,11 @@ export const _addUser = async(req, res) => {
     )
     .catch(e => {
       console.log(e);
-      res.status(404).json({msg:'Sorry, username already exists.'})
+      res.status(404).json({msg:"Error: Make sure you entered all fields."});
     })
   } catch (e) {
     console.log(e);
-    res.sendStatus(404).json({msg:e})
+    res.status(404).json({msg:'Error: Make sure you entered all fields.'});
   }
 }
 
