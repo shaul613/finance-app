@@ -16,6 +16,7 @@ import {
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import {AppContext} from '../App';
+import Cookies from 'js-cookie';
 
 const Navbar = (props) => {
 
@@ -70,7 +71,7 @@ const Navbar = (props) => {
           'Content-Type':'application/json'
         }
       });
-      console.log('register=>', response);
+      Cookies.remove('accessToken1');
       if(response.status == 200 || response.status == 204){
         navigate('/login')
       }

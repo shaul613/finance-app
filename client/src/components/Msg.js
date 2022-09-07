@@ -38,23 +38,23 @@ const Msg = (props) => {
         },
         body:JSON.stringify({id:id})
       })
-      .then(() => {
-
+      .then((res) => {
+        if(res.status !== 200){
+          setLoginMsg(
+            <div>
+              <p>Please <Link to='/login'>log in</Link> to like!</p>
+            </div>
+          );
+        } else{
+          setLikes(originalLikes+1);
+          setLiked(true);
+          setUnliked(false);
+          setLikeIcon(<ThumbUpAltIcon />);
+          setUnlikeIcon(<ThumbDownOffAltIcon />);
+        }
         }
       )
-      if(!accessToken){
-        setLoginMsg(
-          <div>
-            <p>Please <Link to='/login'>log in</Link> to like!</p>
-          </div>
-        );
-      } else{
-        setLikes(originalLikes+1);
-        setLiked(true);
-        setUnliked(false);
-        setLikeIcon(<ThumbUpAltIcon />);
-        setUnlikeIcon(<ThumbDownOffAltIcon />);
-      }
+
     // } else{
     //   // fetch(`/backend/msg/like`,{
     //   //   method:'POST',
