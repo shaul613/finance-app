@@ -35,7 +35,7 @@ const LoginForm = (props) => {
   }
 
   return(
-    <div>
+    <div class='login_register_form'>
       <div>
         <h3>{props.title} Form</h3>
       </div>
