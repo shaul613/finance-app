@@ -24,7 +24,7 @@ export const _addUser = async(req, res) => {
     })
   } catch (e) {
     console.log(e);
-    res.status(404).json({msg:e})
+    res.sendStatus(404).json({msg:e})
   }
 }
 
