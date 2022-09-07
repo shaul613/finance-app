@@ -47,7 +47,7 @@ function App() {
             <Route path="/*" element={<NotFound />}/>
             <Route path="/creditcards" element={<CreditCards />}/>
             <Route path="crypto" element={<Crypto />}/>
-            <Route path="/" element={<Comments/>}/>
+            <Route path="/" element={<Home/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/feedback" element={<Comments/>}/>
