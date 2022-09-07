@@ -6,15 +6,19 @@ import TextFiled from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {AppContext} from '../App';
 import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 
 const LoginForm = (props) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [msg, setMsg] = useState('');
+  const [exp, setExp] = useState();
 
   const {setAccessToken} = useContext(AppContext);
 
   let navigate = useNavigate();
+
+
 
   const handleAction = async() => {
     try{
@@ -27,7 +31,14 @@ const LoginForm = (props) => {
         }
       });
       setAccessToken(response.data);
-      Cookies.set('accessToken1', response.data)
+      // try{
+      //   const decode = jwt_decode(response.data);
+      //   setExp(decode.exp);
+      //   console.log(exp);
+      // } catch(e){
+      //   console.log(e);
+      // }
+      Cookies.set('accessToken1', response.data, {expires:1})
       navigate('/');
     } catch(e){
       setMsg(e.response.data.msg)
