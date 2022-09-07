@@ -20,20 +20,20 @@ import Cookies from 'js-cookie';
 
 const Navbar = (props) => {
 
-  const {accessToken} = useContext(AppContext);
+  const {accessToken, setAccessToken} = useContext(AppContext);
   const [value, setValue] = useState(false);
   const [token, setToken] = useState({});
   const [loginStatus, setLoginStatus] = useState(null);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if(accessToken){
-      setLoginStatus('Log Out')
-    } else{
-      setLoginStatus('Log In')
-    }
-  },[])
+  // useEffect(() => {
+  //   if(accessToken){
+  //     setLoginStatus('Log Out')
+  //   } else{
+  //     setLoginStatus('Log In')
+  //   }
+  // },[])
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -66,7 +66,7 @@ const Navbar = (props) => {
       Cookies.remove('accessToken1');
       if(response.status == 200 || response.status == 204){
         navigate('/login');
-        setLoginStatus('Log In')
+        setAccessToken(null)
       }
     } catch (e) {
       console.log(e);
@@ -88,7 +88,7 @@ const Navbar = (props) => {
           <Tab component={Link} to='/cryptonews' label="Crypto News (coming soon!)" />*/}
           {/*Tab component={Link} to='/login' label="Login" />*/}
           {/*<Tab component={Link} to='/register' label="Register" />*/}
-          <Tab component={Link} to='/login' onClick={logout} label={loginStatus} />
+          <Tab component={Link} to='/login' onClick={logout} label={accessToken ? 'Log Out' : 'Log In'} />
         </Tabs>
         </div>
       </Box>

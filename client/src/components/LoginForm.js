@@ -26,7 +26,7 @@ const LoginForm = (props) => {
           'Content-Type':'application/json'
         }
       });
-      // setAccessToken(response.data);
+      setAccessToken(response.data);
       Cookies.set('accessToken1', response.data)
       navigate('/');
     } catch(e){
