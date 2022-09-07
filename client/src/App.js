@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import {
   useState,
+  useEffect,
   createContext,
 } from 'react';
 import Crypto from './components/Crypto.js';
@@ -21,12 +22,21 @@ import Contact from './components/Contact';
 import CryptoNews from './components/CryptoNews';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
+import Cookies from 'js-cookie';
 import {Auth} from './auth/Auth.js';
 
 export const AppContext = createContext(null);
 
 function App() {
   const [accessToken, setAccessToken] = useState();
+
+  useEffect(() => {
+    console.log('bitcoin => ',Cookies.get('accessToken1'));
+    const token = Cookies.get('accessToken1');
+    if(token){
+      setAccessToken(token);
+    }
+  }, [])
   return (
     <AppContext.Provider value={{accessToken, setAccessToken}}>
     <div className="App">

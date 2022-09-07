@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import TextFiled from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {AppContext} from '../App';
+import Cookies from 'js-cookie';
 
 const LoginForm = (props) => {
   const [username, setUsername] = useState();
@@ -25,7 +26,8 @@ const LoginForm = (props) => {
           'Content-Type':'application/json'
         }
       });
-      setAccessToken(response.data)
+      setAccessToken(response.data);
+      Cookies.set('accessToken1', response.data)
       navigate('/');
     } catch(e){
       setMsg(e.response.data.msg)

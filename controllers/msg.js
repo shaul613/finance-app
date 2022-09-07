@@ -8,7 +8,6 @@ import {
 } from '../modules/msg.js';
 
 export const _addMsg = (req, res) => {
-  // console.log(req.body.msgbody);
   addMsg(req.body.title, req.body.name, req.body.msgbody, req.socket.remoteAddress)
   .catch(e => {
     console.log(e);
@@ -30,7 +29,8 @@ export const _addLikeToMsg = (req, res) => {
   const ip = req.headers['X-Forwarded-For'] || req.socket.remoteAddress;
   addLikeToMsg(req.body.id)
   .then(() => {
-    addLikeToLikeTable(req.body.id, ip)
+    addLikeToLikeTable(req.body.id, ip);
+    res.sendStatus(200);
   })
   .catch(e => {
     console.log(e);

@@ -38,6 +38,10 @@ const Msg = (props) => {
         },
         body:JSON.stringify({id:id})
       })
+      .then(() => {
+
+        }
+      )
       if(!accessToken){
         setLoginMsg(
           <div>
