@@ -1,7 +1,8 @@
 import Msg from './Msg';
 import {
   useState,
-  useEffect
+  useEffect,
+  useContext,
 } from 'react';
 import {
   FormControl,
@@ -9,11 +10,13 @@ import {
   Button,
   TextField,
 } from '@mui/material';
+import {AppContext} from '../App';
 
 const Comments = (props) => {
 
   const [msg, setMsg] = useState([]);
   const [likes, setLieks] = useState([]);
+  const {accessToken} = useContext(AppContext);
   let likesArr = {};
 
   useEffect(() => {
@@ -38,7 +41,22 @@ const Comments = (props) => {
       })
     })
     console.log(likesArr);
-  }, [])
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`/backend/msg/add_msg`,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({
+        title:e.target.title.value,
+        name:e.target.name.value,
+        msgbody:e.target.msgbody.value
+      })
+    })
+  }
 
   return(
     <div id='comments'>
@@ -58,7 +76,8 @@ const Comments = (props) => {
       <div id='addMsg'>
         <h4>Add A Comment</h4>
         <p>Drop some feedback about what you like, how I can imporve, or just tell us how your day's going!</p>
-        <form id='comment_form' action='/backend/msg/add_msg' method='post'>
+        {/*<form id='comment_form' action='/backend/msg/add_msg' method='post'>*/}
+        <form id='comment_form' onSubmit={handleSubmit}>
 
           <p>
             <label>Your Name (optional) </label><input name='name' className='msg_input'/>
