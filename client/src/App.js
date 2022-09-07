@@ -31,7 +31,6 @@ function App() {
   const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
-    console.log('bitcoin => ',Cookies.get('accessToken1'));
     const token = Cookies.get('accessToken1');
     if(token){
       setAccessToken(token);
