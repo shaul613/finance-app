@@ -3,6 +3,9 @@ import {
   useEffect
 } from 'react';
 import {
+  Link,
+} from 'react-router-dom';
+import {
   Icon,
 } from '@mui/material';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
@@ -18,6 +21,7 @@ const Msg = (props) => {
   const [likeIcon, setLikeIcon] = useState(<ThumbUpOffAltIcon />);
   const [unlikeIcon, setUnlikeIcon] = useState(<ThumbDownOffAltIcon />);
   const [ip, setIp] = useState();
+  const [loginMsg, setLoginMsg] = useState('');
   const originalLikes = props.likes;
 
   // useEffect(() => {
@@ -37,12 +41,24 @@ const Msg = (props) => {
           'Content-Type':'application/json',
         },
         body:JSON.stringify({id:id})
-      });
-      setLikes(originalLikes+1);
-      setLiked(true);
-      setUnliked(false);
-      setLikeIcon(<ThumbUpAltIcon />);
-      setUnlikeIcon(<ThumbDownOffAltIcon />);
+      })
+      .then((res) => {
+        if(res.status !== 200){
+          setLoginMsg(
+            <div>
+              <p>Please <Link to='/login'>log in</Link> to like!</p>
+            </div>
+          );
+        } else{
+          console.log('hello');
+          setLikes(originalLikes+1);
+          setLiked(true);
+          setUnliked(false);
+          setLikeIcon(<ThumbUpAltIcon />);
+          setUnlikeIcon(<ThumbDownOffAltIcon />);
+        }
+      })
+
     // } else{
     //   // fetch(`/backend/msg/like`,{
     //   //   method:'POST',
@@ -91,6 +107,7 @@ const Msg = (props) => {
       <h3>{props.title}</h3>
       <p id='msg_body'>{props.body}</p>
       <p>{likes} <button onClick={()=>like(props.id)}>{likeIcon}</button> {/*<button onClick={()=>unlike(props.id)}>{unlikeIcon}</button>*/}</p>
+      {loginMsg}
     </div>
   )
 }
