@@ -6,6 +6,7 @@ import {
 } from 'react';
 import {
   Link,
+  useNavigate,
 } from 'react-router-dom';
 import {
   FormControl,
@@ -19,8 +20,10 @@ const Comments = (props) => {
 
   const [msg, setMsg] = useState([]);
   const [likes, setLieks] = useState([]);
-  const [loginMsg, setLoginMsg] = useState('')
+  const [loginMsg, setLoginMsg] = useState('');
+  const [addedMsg, setAddedMsg] = useState('');
   const {accessToken} = useContext(AppContext);
+  const navigate = useNavigate();
   let likesArr = {};
 
   useEffect(() => {
@@ -68,11 +71,18 @@ const Comments = (props) => {
         msgbody:e.target.msgbody.value
       })
     })
+    .then(data => {
+      return data;
+    })
+    console.log('hello');
+    setAddedMsg('Comment added!');
+    navigate('/feedback#msg_added');
   }
 
   return(
     <div id='comments'>
       <h1>Feedback And Comments</h1>
+      <p id='msg_added'>{addedMsg}</p>
       <p><a href='#addMsg'>Write A Comment</a></p>
       <div id="all_msg">
         {
@@ -105,6 +115,10 @@ const Comments = (props) => {
             <textarea name='msgbody' className='msg_input' rows='8' columns='100' maxLength='5000' required></textarea>
           </p>
           <button id='add_msg_button' variant='contained' type='submit'>Submit</button>
+          <p>
+            {addedMsg} <br />
+            back to <Link to='/'>home page</Link>
+          </p>
           {loginMsg}
         </form>
       </div>
