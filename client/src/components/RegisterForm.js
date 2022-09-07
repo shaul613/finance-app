@@ -42,7 +42,7 @@ const RegisterForm = (props) => {
   // }
 
   return(
-    <div class='login_register_form'>
+    <div className='login_register_form'>
       <div>
         <h3>{props.title} Form</h3>
       </div>
