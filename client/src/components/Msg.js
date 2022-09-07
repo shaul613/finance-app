@@ -1,6 +1,7 @@
 import {
   useState,
-  useEffect
+  useEffect,
+  useContext,
 } from 'react';
 import {
   Link,
@@ -12,6 +13,8 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import jwt_decode from 'jwt-decode';
+import {AppContext} from '../App';
 
 const Msg = (props) => {
 
@@ -22,16 +25,17 @@ const Msg = (props) => {
   const [unlikeIcon, setUnlikeIcon] = useState(<ThumbDownOffAltIcon />);
   const [ip, setIp] = useState();
   const [loginMsg, setLoginMsg] = useState('');
+  const {accessToken} = useContext(AppContext);
+  const [token, setToken] = useState({});
   const originalLikes = props.likes;
 
-  // useEffect(() => {
-  //   fetch('https://api.ipify.org/?format=json')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     console.log(data);
-  //     setIp(data);
-  //   })
-  // }, [])
+  useEffect(() => {
+    try{
+      const decode = jwt_decode(accessToken);
+      setToken(decode);
+    } catch(e){
+    }
+  },[])
 
   const like = (id) => {
     if(!liked){
@@ -42,17 +46,19 @@ const Msg = (props) => {
         },
         body:JSON.stringify({id:id})
       })
-      // setLoginMsg(
-      //   <div>
-      //     <p>Please <Link to='/login'>log in</Link> to like!</p>
-      //   </div>
-      // );
-      setLikes(originalLikes+1);
-      setLiked(true);
-      setUnliked(false);
-      setLikeIcon(<ThumbUpAltIcon />);
-      setUnlikeIcon(<ThumbDownOffAltIcon />);
-
+      if(!accessToken){
+        setLoginMsg(
+          <div>
+            <p>Please <Link to='/login'>log in</Link> to like!</p>
+          </div>
+        );
+      } else{
+        setLikes(originalLikes+1);
+        setLiked(true);
+        setUnliked(false);
+        setLikeIcon(<ThumbUpAltIcon />);
+        setUnlikeIcon(<ThumbDownOffAltIcon />);
+      }
     // } else{
     //   // fetch(`/backend/msg/like`,{
     //   //   method:'POST',
