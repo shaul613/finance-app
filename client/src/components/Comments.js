@@ -5,6 +5,9 @@ import {
   useContext,
 } from 'react';
 import {
+  Link,
+} from 'react-router-dom';
+import {
   FormControl,
   Box,
   Button,
@@ -16,6 +19,7 @@ const Comments = (props) => {
 
   const [msg, setMsg] = useState([]);
   const [likes, setLieks] = useState([]);
+  const [loginMsg, setLoginMsg] = useState('')
   const {accessToken} = useContext(AppContext);
   let likesArr = {};
 
@@ -45,6 +49,14 @@ const Comments = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!accessToken){
+      setLoginMsg(
+        <div>
+          <p>Please <Link to='/login'>log in</Link> to comment!</p>
+        </div>
+      );
+      return;
+    }
     fetch(`/backend/msg/add_msg`,{
       method:'POST',
       headers:{
@@ -93,6 +105,7 @@ const Comments = (props) => {
             <textarea name='msgbody' className='msg_input' rows='8' columns='100' maxLength='5000' required></textarea>
           </p>
           <button id='add_msg_button' variant='contained' type='submit'>Submit</button>
+          {loginMsg}
         </form>
       </div>
     </div>
