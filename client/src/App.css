@@ -92,6 +92,7 @@ body{
 
 .crypto_img{
   width: 25vw;
+  max-height: 40vh;
 }
 
 #home_page{
