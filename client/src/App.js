@@ -19,7 +19,6 @@ import Comments from './components/Comments';
 import About from './components/About';
 import Contact from './components/Contact';
 import CryptoNews from './components/CryptoNews';
-// import LoginRegisterForm from './components/LoginRegisterForm';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import {Auth} from './auth/Auth.js';

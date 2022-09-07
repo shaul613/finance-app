@@ -25,7 +25,6 @@ const LoginForm = (props) => {
           'Content-Type':'application/json'
         }
       });
-      console.log('login => ', response.data);
       setAccessToken(response.data)
       navigate('/');
     } catch(e){

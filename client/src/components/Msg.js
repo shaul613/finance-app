@@ -29,14 +29,6 @@ const Msg = (props) => {
   const [token, setToken] = useState({});
   const originalLikes = props.likes;
 
-  useEffect(() => {
-    try{
-      const decode = jwt_decode(accessToken);
-      setToken(decode);
-    } catch(e){
-    }
-  },[])
-
   const like = (id) => {
     if(!liked){
       fetch(`/backend/msg/like`,{
