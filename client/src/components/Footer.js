@@ -22,9 +22,6 @@ const Footer = (props) => {
         <li><Link to='/login'>Log in</Link></li>
         <li><Link to='/register'>Register</Link></li>
       </ul>
-      <ul className='footer_list'>
-
-      </ul>
       </div>
       <small>Created with love in Tel Aviv, Israel</small>
     </div>
