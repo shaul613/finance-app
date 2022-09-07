@@ -49,6 +49,7 @@ body{
   height: 10vh;
   top:0;
   left: 0;
+  /* margin-bottom: 10vh; */
 }
 
 #page_container{
@@ -91,6 +92,10 @@ body{
 
 .crypto_img{
   width: 25vw;
+}
+
+#home_page{
+  margin-top: 30vh;
 }
 
 .home_page_item{

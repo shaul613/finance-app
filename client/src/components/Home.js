@@ -53,7 +53,7 @@ const Home = (props) => {
   },[])
 
   return(
-    <div>
+    <div id='home_page'>
       {/*<TopBar />*/}
       <div className='random_crypto_list'>
         <div className='three_random_cards'>
