@@ -63,6 +63,7 @@ const LoginForm = (props) => {
           id="password"
           label="Enter Password"
           variant="outlined"
+          type='password'
           onChange={(e)=>setPassword(e.target.value)}
         />
       </Box>
