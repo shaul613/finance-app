@@ -5,8 +5,8 @@ import {
 } from '../api_fetch/cryptoNews.js';
 
 export const enterCryptoNews = () => {
-  nc.schedule('53 * * * *', () => {
-    console.log('nc started on 53');
+  nc.schedule('32 * * * *', () => {
+    console.log('nc started on 32');
     fetchCryptoNews()
     .then(data => {
       db('crypto_news')
