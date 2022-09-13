@@ -1,40 +1,30 @@
-import {db} from '../connections/db.js';
 import nc from 'node-cron';
-import {
-  fetchCryptoNews,
-} from '../api_fetch/cryptoNews.js';
+import { pick } from "ramda";
+import { fetchCryptoNews } from '../api_fetch/cryptoNews.js';
+import { db } from '../connections/db.js';
 
-export const enterCryptoNews = () => {
-  nc.schedule('32 * * * *', () => {
-    console.log('nc started on 32');
-    fetchCryptoNews()
-    .then(data => {
-      db('crypto_news')
-      .del()
-      .where('news_id', '!=', 'null');
-      return data;
-    })
-    .then(data => {
-      // console.log('data');
-      // console.log(data);
-      data.map(item => {
-        // console.log(item);
-        db('crypto_news')
-        .insert({
-          source:item.source,
-          title:item.title,
-          url:item.url
-        })
-        .catch(e => {
-          console.log(e);
-        })
-      })
-    })
-  })
+export function enterCryptoNews() {
+    nc.schedule('32 * * * *', async () => {
+        console.log('nc started on 32');
+
+        // clean
+        await db('crypto_news')
+            .del()
+            .where('news_id', '!=', 'null')
+            .then();
+
+        const apiNews = await fetchCryptoNews();
+        const dbNews = apiNews.map(convertNews);
+        await db('crypto_news')
+            .insert(dbNews)
+            .catch(console.error);
+    });
 }
 
-export const getCryptoNews = () => {
-  return db('crypto_news')
-  .select('*')
-  .orderBy('news_id');
+const convertNews = pick(["source", "title", "url"]);
+
+export function getCryptoNews() {
+    return db('crypto_news')
+        .select('*')
+        .orderBy('news_id');
 }
