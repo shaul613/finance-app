@@ -1,26 +1,25 @@
-import express from 'express';
-import cors from 'cors';
-import path from 'path';
-import nc from 'node-cron';
 import cookieParser from 'cookie-parser';
-import {db} from './connections/db.js';
+import cors from 'cors';
+import express from 'express';
+import path from 'path';
+import { enterCryptoNews } from './modules/cryptoNews.js';
+import cryptoNewsRouter from './routes/cryptoNews.js';
 import router from './routes/financialProducts.js';
 import msgRouter from './routes/msg.js';
-import cryptoNewsRouter from './routes/cryptoNews.js';
 import authRouter from './routes/users.js';
-import {enterCryptoNews} from './modules/cryptoNews.js';
 
 const app = express();
 app.use(cors({
-  credentials:true,
-  origin:'http://localhost:3000' || 'https://finance-di.herokuapp.com',
+    credentials: true,
+    origin: 'http://localhost:3000' || 'https://finance-di.herokuapp.com',
 }));
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log('server up on port ', process.env.PORT || 5000);
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log('server up on port ', PORT);
 });
 
 const __dirname = path.resolve();
@@ -32,8 +31,8 @@ app.use('/backend/products', router);
 app.use('/backend/msg', msgRouter);
 app.use('/backend/cryptonews', cryptoNewsRouter);
 app.use('/backend/auth', authRouter);
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname , './client/build','index.html'))
-})
+app.get('*', (_, res) =>
+    res.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
+);
 
 enterCryptoNews();
